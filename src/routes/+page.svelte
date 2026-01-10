@@ -606,6 +606,7 @@
 							>
 							<option value="pvc-aluminum">{t.contact.form.serviceOptions.pvcAluminum}</option>
 							<option value="assessment">{t.contact.form.serviceOptions.assessment}</option>
+							<option value="other">{t.contact.form.propertyOptions.other}</option>
 						</select>
 					</div>
 
@@ -631,36 +632,29 @@
 						<ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
 					</button>
 				</form>
-
-				<div class="mt-12 border-t border-gray-200 pt-8">
-					<div class="grid gap-6 text-center md:grid-cols-3">
-						<div class="flex flex-col items-center">
-							<Phone class="mb-2 h-6 w-6 text-amber-700" />
-							<div class="text-sm font-medium text-gray-900">{t.contact.info.phone}</div>
-							<div class="text-sm text-gray-600">+32 XXX XX XX XX</div>
-						</div>
-						<div class="flex flex-col items-center">
-							<Mail class="mb-2 h-6 w-6 text-amber-700" />
-							<div class="text-sm font-medium text-gray-900">{t.contact.info.email}</div>
-							<div class="text-sm text-gray-600">info@woodcraft-joinery.be</div>
-						</div>
-						<div class="flex flex-col items-center">
-							<MapPin class="mb-2 h-6 w-6 text-amber-700" />
-							<div class="text-sm font-medium text-gray-900">{t.contact.info.location}</div>
-							<div class="text-sm text-gray-600">{t.contact.info.locationText}</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Footer -->
-	<footer class="bg-gray-900 py-12 text-white">
+	<footer class="bg-gray-900 py-16 text-white">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-8 grid gap-8 md:grid-cols-3">
+			<div class="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
 				<div>
-					<div class="mb-4 flex items-center space-x-2">
+					<h3 class="mb-4 text-lg font-semibold">{t.footer.quickLinks}</h3>
+					<div class="space-y-2">
+						{#each navItems as item}
+							<button
+								onclick={() => scrollToSection(item.id)}
+								class="block text-gray-400 transition-colors hover:text-amber-400"
+							>
+								{item.label}
+							</button>
+						{/each}
+					</div>
+				</div>
+				<div class="text-center md:text-left">
+					<div class="mb-4 inline-flex items-center space-x-2 md:inline-flex">
 						<svg
 							class="h-8 w-8 text-amber-400"
 							viewBox="0 0 24 24"
@@ -676,31 +670,10 @@
 						</svg>
 						<span class="text-2xl font-bold">WoodCraft</span>
 					</div>
-					<p class="text-gray-400">{t.footer.description}</p>
-				</div>
-				<div>
-					<h3 class="mb-4 text-lg font-semibold">{t.footer.quickLinks}</h3>
-					<div class="space-y-2">
-						{#each navItems as item}
-							<button
-								onclick={() => scrollToSection(item.id)}
-								class="block text-gray-400 transition-colors hover:text-amber-400"
-							>
-								{item.label}
-							</button>
-						{/each}
-					</div>
-				</div>
-				<div>
-					<h3 class="mb-4 text-lg font-semibold">{t.footer.businessHours}</h3>
-					<div class="space-y-2 text-gray-400">
-						<p>{t.footer.schedule.weekdays}</p>
-						<p>{t.footer.schedule.saturday}</p>
-						<p>{t.footer.schedule.sunday}</p>
-					</div>
+					<p class="text-lg text-gray-400">{t.footer.description}</p>
 				</div>
 			</div>
-			<div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+			<div class="mt-12 border-t border-gray-800 pt-8 text-center text-gray-400">
 				<p>&copy; {new Date().getFullYear()} WoodCraft Joinery. {t.footer.copyright}</p>
 			</div>
 		</div>

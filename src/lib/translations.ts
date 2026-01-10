@@ -336,15 +336,9 @@ export const translations: Record<Language, Translation> = {
 		},
 		footer: {
 			description:
-				'Master craftsmen manufacturing premium wooden joinery since 1995. Windows, doors, staircases, kitchens, and complete renovations. Direct manufacturer – quality guaranteed.',
+				'Master craftsmen with more than 25 years of experience in woodworking. Specializing in premium wooden windows, doors, staircases, kitchens, and complete renovations. Direct manufacturer – quality guaranteed.',
 			quickLinks: 'Quick Links',
-			businessHours: 'Business Hours',
-			schedule: {
-				weekdays: 'Monday - Friday: 7:00 AM - 6:00 PM',
-				saturday: 'Saturday: 8:00 AM - 2:00 PM',
-				sunday: 'Sunday: Closed'
-			},
-			copyright: 'All rights reserved. Crafting quality since 1995.'
+			copyright: 'All rights reserved.'
 		}
 	},
 	nl: {
@@ -531,15 +525,9 @@ export const translations: Record<Language, Translation> = {
 		},
 		footer: {
 			description:
-				'Meester-ambachtslieden die premium houten schrijnwerk produceren sinds 1995. Ramen, deuren, trappen, keukens en complete renovaties. Directe fabrikant – kwaliteit gegarandeerd.',
+				'Meester-ambachtslieden met meer dan 25 jaar ervaring in houtbewerking. Gespecialiseerd in premium houten ramen, deuren, trappen, keukens en complete renovaties. Directe fabrikant – kwaliteit gegarandeerd.',
 			quickLinks: 'Snelle Links',
-			businessHours: 'Openingstijden',
-			schedule: {
-				weekdays: 'Maandag - Vrijdag: 7:00 - 18:00',
-				saturday: 'Zaterdag: 8:00 - 14:00',
-				sunday: 'Zondag: Gesloten'
-			},
-			copyright: 'Alle rechten voorbehouden. Vakmanschap sinds 1995.'
+			copyright: 'Alle rechten voorbehouden.'
 		}
 	}
 };
