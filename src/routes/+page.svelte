@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { base } from '$app/paths';
 	import {
 		Menu,
 		X,
@@ -462,10 +463,10 @@
 			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<CaseStudy
 					images={[
-						'/projects/staircase/Photo1.jpeg',
-						'/projects/staircase/Photo2.jpeg',
-						'/projects/staircase/Photo3.jpeg',
-						'/projects/staircase/Photo4.jpeg'
+						`${base}/projects/staircase/Photo1.jpeg`,
+						`${base}/projects/staircase/Photo2.jpeg`,
+						`${base}/projects/staircase/Photo3.jpeg`,
+						`${base}/projects/staircase/Photo4.jpeg`
 					]}
 					title={t.cases.project1.title}
 					description={t.cases.project1.description}
@@ -473,11 +474,11 @@
 				/>
 				<CaseStudy
 					images={[
-						'/projects/balcony-window-and-door/Photo1.jpeg',
-						'/projects/balcony-window-and-door/Photo2.jpeg',
-						'/projects/balcony-window-and-door/Photo3.jpeg',
-						'/projects/balcony-window-and-door/Photo4.jpeg',
-						'/projects/balcony-window-and-door/Photo5.jpeg'
+						`${base}/projects/balcony-window-and-door/Photo1.jpeg`,
+						`${base}/projects/balcony-window-and-door/Photo2.jpeg`,
+						`${base}/projects/balcony-window-and-door/Photo3.jpeg`,
+						`${base}/projects/balcony-window-and-door/Photo4.jpeg`,
+						`${base}/projects/balcony-window-and-door/Photo5.jpeg`
 					]}
 					title={t.cases.project2.title}
 					description={t.cases.project2.description}
@@ -485,12 +486,12 @@
 				/>
 				<CaseStudy
 					images={[
-						'/projects/front-door-and-windows/Photo1.jpeg',
-						'/projects/front-door-and-windows/Photo2.jpeg',
-						'/projects/front-door-and-windows/Photo3.jpeg',
-						'/projects/front-door-and-windows/Photo4.jpeg',
-						'/projects/front-door-and-windows/Photo5.jpeg',
-						'/projects/front-door-and-windows/Photo6.jpeg'
+						`${base}/projects/front-door-and-windows/Photo1.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo2.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo3.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo4.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo5.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo6.jpeg`
 					]}
 					title={t.cases.project3.title}
 					description={t.cases.project3.description}
