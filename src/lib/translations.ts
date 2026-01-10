@@ -168,9 +168,9 @@ export const translations: Record<Language, Translation> = {
 		promo: {
 			badge: '🎉 Limited Time Offer',
 			mainDiscount: '10% OFF all orders until March 1st!',
-			referralDiscount: '+10% extra for successful referrals',
+			referralDiscount: '+10% extra when your referral places an order',
 			validUntil: 'Valid until March 1st, 2026',
-			totalSavings: 'Save over 20% when you refer new clients!'
+			totalSavings: 'Save over 20% when your referrals become customers!'
 		},
 		hero: {
 			badge: 'Direct Manufacturer - No Middleman',
@@ -291,7 +291,7 @@ export const translations: Record<Language, Translation> = {
 		},
 		contact: {
 			title: 'Get Your Free Quote',
-			subtitle: 'Tell us about your project and receive a no-obligation quote within 48 hours',
+			subtitle: 'Tell us about your project and receive a no-obligation quote',
 			manufacturerNote: 'Direct from our workshop – no middleman pricing',
 			form: {
 				name: 'Full Name',
@@ -329,7 +329,7 @@ export const translations: Record<Language, Translation> = {
 				phone: 'Phone',
 				email: 'Email',
 				location: 'Location',
-				locationText: 'Serving all of Belgium'
+				locationText: 'Netherlands'
 			}
 		},
 		footer: {
@@ -357,9 +357,9 @@ export const translations: Record<Language, Translation> = {
 		promo: {
 			badge: '🎉 Tijdelijke Aanbieding',
 			mainDiscount: '10% KORTING op alle bestellingen tot 1 maart!',
-			referralDiscount: '+10% extra bij succesvolle doorverwijzing',
+			referralDiscount: '+10% extra wanneer uw doorverwijzing een bestelling plaatst',
 			validUntil: 'Geldig tot 1 maart 2026',
-			totalSavings: 'Bespaar meer dan 20% wanneer u nieuwe klanten doorverwijst!'
+			totalSavings: 'Bespaar meer dan 20% wanneer uw doorverwijzingen klant worden!'
 		},
 		hero: {
 			badge: 'Directe Fabrikant - Geen Tussenpersoon',
@@ -490,7 +490,7 @@ export const translations: Record<Language, Translation> = {
 		},
 		contact: {
 			title: 'Ontvang Uw Gratis Offerte',
-			subtitle: 'Vertel ons over uw project en ontvang binnen 48 uur een vrijblijvende offerte',
+			subtitle: 'Vertel ons over uw project en ontvang een vrijblijvende offerte',
 			manufacturerNote: 'Direct van onze werkplaats – geen tussenpersoon prijzen',
 			form: {
 				name: 'Volledige Naam',
@@ -528,7 +528,7 @@ export const translations: Record<Language, Translation> = {
 				phone: 'Telefoon',
 				email: 'E-mail',
 				location: 'Locatie',
-				locationText: 'Actief in heel België'
+				locationText: 'Nederland'
 			}
 		},
 		footer: {

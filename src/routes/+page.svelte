@@ -188,8 +188,11 @@
 	>
 		<div class="bg-grid-pattern absolute inset-0 opacity-5"></div>
 		<!-- Promotional Banner -->
-		<div
-			class="absolute top-20 right-0 left-0 z-20 bg-gradient-to-r from-amber-600 to-orange-500 px-4 py-3 text-center text-white"
+		<button
+			type="button"
+			class="absolute top-20 right-0 left-0 z-20 cursor-pointer bg-gradient-to-r from-amber-600 to-orange-500 px-4 py-3 text-center text-white focus:ring-2 focus:ring-amber-300 focus:outline-none"
+			aria-label="Scroll to contact form"
+			onclick={() => scrollToSection('contact')}
 		>
 			<div
 				class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 sm:flex-row sm:gap-6"
@@ -200,7 +203,7 @@
 				<span class="hidden md:inline">•</span>
 				<span class="hidden md:inline">{t.promo.referralDiscount}</span>
 			</div>
-		</div>
+		</button>
 		<div class="relative z-10 mx-auto max-w-7xl px-4 py-20 pt-32 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<div class="animate-fade-in space-y-8">
@@ -449,7 +452,7 @@
 								<div class="text-2xl font-bold text-gray-900">
 									{t.advantages.uValue}
 								</div>
-								<div class="text-sm text-gray-600">Up to 40% heat loss reduction</div>
+								<div class="text-sm text-gray-600">Substantial heat loss reduction</div>
 							</div>
 						</div>
 					</div>
