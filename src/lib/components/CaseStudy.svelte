@@ -1,36 +1,93 @@
 <script lang="ts">
-	import { MapPin, CheckCircle } from 'lucide-svelte';
+	import { CheckCircle, ChevronLeft, ChevronRight } from 'lucide-svelte';
 
 	interface Props {
-		image: string;
+		images: string[];
 		title: string;
-		location: string;
 		description: string;
 		results: string[];
-		badge: string;
 	}
 
-	let { image, title, location, description, results, badge }: Props = $props();
+	let { images, title, description, results }: Props = $props();
+
+	let currentImageIndex = $state(0);
+	let isTransitioning = $state(false);
+
+	function nextImage() {
+		if (isTransitioning) return;
+		isTransitioning = true;
+		currentImageIndex = (currentImageIndex + 1) % images.length;
+		setTimeout(() => (isTransitioning = false), 500);
+	}
+
+	function prevImage() {
+		if (isTransitioning) return;
+		isTransitioning = true;
+		currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+		setTimeout(() => (isTransitioning = false), 500);
+	}
+
+	function goToImage(index: number) {
+		if (isTransitioning || index === currentImageIndex) return;
+		isTransitioning = true;
+		currentImageIndex = index;
+		setTimeout(() => (isTransitioning = false), 500);
+	}
 </script>
 
 <div class="group overflow-hidden rounded-xl bg-white shadow-lg transition-shadow hover:shadow-xl">
 	<div class="relative h-64 overflow-hidden">
-		<img
-			src={image}
-			alt={title}
-			class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-		/>
-		<div
-			class="absolute top-4 right-4 rounded-full bg-amber-600 px-3 py-1 text-sm font-semibold text-white"
-		>
-			{badge}
-		</div>
+		<!-- Image Slideshow -->
+		{#each images as image, index}
+			<img
+				src={image}
+				alt="{title} - Photo {index + 1}"
+				class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-in-out {index ===
+				currentImageIndex
+					? 'scale-100 opacity-100'
+					: 'scale-105 opacity-0'}"
+			/>
+		{/each}
+
+		<!-- Navigation Arrows -->
+		{#if images.length > 1}
+			<button
+				onclick={prevImage}
+				class="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 hover:bg-black/60"
+				aria-label="Previous image"
+			>
+				<ChevronLeft class="h-5 w-5" />
+			</button>
+			<button
+				onclick={nextImage}
+				class="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 hover:bg-black/60"
+				aria-label="Next image"
+			>
+				<ChevronRight class="h-5 w-5" />
+			</button>
+
+			<!-- Dot Indicators -->
+			<div class="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+				{#each images as _, index}
+					<button
+						onclick={() => goToImage(index)}
+						class="h-2 w-2 rounded-full transition-all duration-300 {index === currentImageIndex
+							? 'w-4 bg-white'
+							: 'bg-white/50 hover:bg-white/75'}"
+						aria-label="Go to image {index + 1}"
+					></button>
+				{/each}
+			</div>
+
+			<!-- Image Counter -->
+			<div
+				class="absolute top-3 left-3 rounded-full bg-black/40 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm"
+			>
+				{currentImageIndex + 1} / {images.length}
+			</div>
+		{/if}
 	</div>
 	<div class="p-6">
-		<div class="mb-2 flex items-center text-sm text-gray-500">
-			<MapPin class="mr-1 h-4 w-4" />
-			{location}
-		</div>
 		<h3 class="mb-3 text-xl font-bold text-gray-900">{title}</h3>
 		<p class="mb-4 text-gray-600">{description}</p>
 		<div class="space-y-2">

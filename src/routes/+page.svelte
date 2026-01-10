@@ -270,18 +270,12 @@
 				</p>
 			</div>
 
-			<!-- Primary Service Highlight -->
-			<div class="mb-8">
-				<span class="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-800">
-					{t.services.primaryLabel}
-				</span>
-			</div>
-
-			<div class="mb-12 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
 				<ServiceCard
 					title={t.services.woodenJoinery.title}
 					description={t.services.woodenJoinery.description}
 					features={t.services.woodenJoinery.features}
+					isPrimary={true}
 				>
 					{#snippet icon()}
 						<svg
@@ -303,6 +297,7 @@
 					title={t.services.interiorJoinery.title}
 					description={t.services.interiorJoinery.description}
 					features={t.services.interiorJoinery.features}
+					isPrimary={true}
 				>
 					{#snippet icon()}
 						<svg
@@ -321,16 +316,7 @@
 						</svg>
 					{/snippet}
 				</ServiceCard>
-			</div>
 
-			<!-- Secondary Services -->
-			<div class="mb-8">
-				<span class="rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
-					{t.services.secondaryLabel}
-				</span>
-			</div>
-
-			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
 				<ServiceCard
 					title={t.services.fullRenovation.title}
 					description={t.services.fullRenovation.description}
@@ -475,28 +461,40 @@
 
 			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<CaseStudy
-					image="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop"
-					title={t.cases.belgian1.title}
-					location={t.cases.belgian1.location}
-					description={t.cases.belgian1.description}
-					results={t.cases.belgian1.results}
-					badge={t.cases.badge}
+					images={[
+						'/projects/staircase/Photo1.jpeg',
+						'/projects/staircase/Photo2.jpeg',
+						'/projects/staircase/Photo3.jpeg',
+						'/projects/staircase/Photo4.jpeg'
+					]}
+					title={t.cases.project1.title}
+					description={t.cases.project1.description}
+					results={t.cases.project1.results}
 				/>
 				<CaseStudy
-					image="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop"
-					title={t.cases.belgian2.title}
-					location={t.cases.belgian2.location}
-					description={t.cases.belgian2.description}
-					results={t.cases.belgian2.results}
-					badge={t.cases.badge}
+					images={[
+						'/projects/balcony-window-and-door/Photo1.jpeg',
+						'/projects/balcony-window-and-door/Photo2.jpeg',
+						'/projects/balcony-window-and-door/Photo3.jpeg',
+						'/projects/balcony-window-and-door/Photo4.jpeg',
+						'/projects/balcony-window-and-door/Photo5.jpeg'
+					]}
+					title={t.cases.project2.title}
+					description={t.cases.project2.description}
+					results={t.cases.project2.results}
 				/>
 				<CaseStudy
-					image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop"
-					title={t.cases.belgian3.title}
-					location={t.cases.belgian3.location}
-					description={t.cases.belgian3.description}
-					results={t.cases.belgian3.results}
-					badge={t.cases.badge}
+					images={[
+						'/projects/front-door-and-windows/Photo1.jpeg',
+						'/projects/front-door-and-windows/Photo2.jpeg',
+						'/projects/front-door-and-windows/Photo3.jpeg',
+						'/projects/front-door-and-windows/Photo4.jpeg',
+						'/projects/front-door-and-windows/Photo5.jpeg',
+						'/projects/front-door-and-windows/Photo6.jpeg'
+					]}
+					title={t.cases.project3.title}
+					description={t.cases.project3.description}
+					results={t.cases.project3.results}
 				/>
 			</div>
 		</div>

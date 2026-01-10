@@ -78,22 +78,18 @@ export interface Translation {
 	cases: {
 		title: string;
 		subtitle: string;
-		badge: string;
-		belgian1: {
+		project1: {
 			title: string;
-			location: string;
 			description: string;
 			results: string[];
 		};
-		belgian2: {
+		project2: {
 			title: string;
-			location: string;
 			description: string;
 			results: string[];
 		};
-		belgian3: {
+		project3: {
 			title: string;
-			location: string;
 			description: string;
 			results: string[];
 		};
@@ -211,10 +207,15 @@ export const translations: Record<Language, Translation> = {
 				features: ['Custom staircases', 'Kitchen cabinets', 'Built-in wardrobes', 'Interior doors']
 			},
 			fullRenovation: {
-				title: 'Full Renovations',
+				title: 'Renovations',
 				description:
-					'Complete home renovation services including tiling, flooring, plastering, and finishing work. One contractor for your entire project from start to finish.',
-				features: ['Tiles & flooring', 'Wall finishing', 'Complete bathrooms', 'Turn-key projects']
+					'Wood-related renovation services including structural wood repairs, replacements, and thermal glass spacer installation for improved energy efficiency.',
+				features: [
+					'Wood repairs & replacements',
+					'Thermal glass spacers',
+					'Window restoration',
+					'Door refurbishment'
+				]
 			},
 			pvcAluminum: {
 				title: 'PVC & Aluminum Options',
@@ -256,37 +257,38 @@ export const translations: Record<Language, Translation> = {
 		cases: {
 			title: 'Our Recent Projects',
 			subtitle: 'Quality craftsmanship across Belgium and beyond',
-			badge: 'Completed Project',
-			belgian1: {
-				title: 'Brussels Townhouse Renovation',
-				location: 'Ixelles, Brussels',
+			project1: {
+				title: 'Wooden Staircase',
 				description:
-					'Complete replacement of 24 wooden windows with thermal spacer glass in a classic Belgian townhouse. Preserved heritage aesthetics while achieving modern thermal performance.',
+					'Custom-crafted solid wood staircase with elegant balustrades and hand-finished details. A stunning centerpiece that combines traditional joinery with modern design aesthetics.',
 				results: [
-					'24 custom windows',
-					'38% energy savings',
-					'Heritage approved',
-					'Completed in 2 weeks'
+					'Solid hardwood construction',
+					'Custom balustrade design',
+					'Hand-finished to perfection',
+					'Built to last generations'
 				]
 			},
-			belgian2: {
-				title: 'Farmhouse Kitchen & Staircase',
-				location: 'Leuven, Flemish Brabant',
+			project2: {
+				title: 'Apartment Renovation',
 				description:
-					'Handcrafted oak kitchen with custom island and matching spiral staircase. Traditional craftsmanship meeting contemporary Belgian country style.',
+					'Complete balcony door and window replacement with premium thermal spacer glass. Modern aesthetics with superior insulation for year-round comfort and energy efficiency.',
 				results: [
-					'Full oak kitchen',
-					'Custom staircase',
-					'Integrated storage',
-					"Client's dream realized"
+					'Balcony door replacement',
+					'New thermal windows',
+					'Improved insulation',
+					'Enhanced natural light'
 				]
 			},
-			belgian3: {
-				title: 'Villa Complete Renovation',
-				location: 'Ghent, East Flanders',
+			project3: {
+				title: 'House Renovation',
 				description:
-					'Full renovation including wooden windows and doors, new flooring throughout, bathroom tiling, and custom built-in wardrobes. Turn-key project from design to completion.',
-				results: ['Windows & doors', 'Complete flooring', '3 bathrooms tiled', 'All-in-one service']
+					'Complete front entrance transformation with a bespoke wooden front door and matching window frames. Premium craftsmanship that elevates curb appeal while maximizing thermal performance.',
+				results: [
+					'Custom front door',
+					'Matching window frames',
+					'Enhanced curb appeal',
+					'Superior thermal efficiency'
+				]
 			}
 		},
 		contact: {
@@ -400,14 +402,14 @@ export const translations: Record<Language, Translation> = {
 				features: ['Op maat gemaakte trappen', 'Keukenkasten', 'Inbouwkasten', 'Binnendeuren']
 			},
 			fullRenovation: {
-				title: 'Volledige Renovaties',
+				title: 'Renovaties',
 				description:
-					'Complete woningrenovatiediensten inclusief tegelwerk, vloeren, pleisterwerk en afwerking. Eén aannemer voor uw volledige project van begin tot eind.',
+					'Hout-gerelateerde renovatiediensten inclusief structurele houtreparaties, vervangingen en installatie van thermische glasspacers voor verbeterde energie-efficiëntie.',
 				features: [
-					'Tegels & vloeren',
-					'Wandafwerking',
-					'Complete badkamers',
-					'Sleutel-op-de-deur projecten'
+					'Houtreparaties & vervangingen',
+					'Thermische glasspacers',
+					'Raamrestauratie',
+					'Deuropknapbeurt'
 				]
 			},
 			pvcAluminum: {
@@ -450,41 +452,37 @@ export const translations: Record<Language, Translation> = {
 		cases: {
 			title: 'Onze Recente Projecten',
 			subtitle: 'Kwaliteitsambacht door heel België en daarbuiten',
-			badge: 'Afgerond Project',
-			belgian1: {
-				title: 'Brusselse Herenhuis Renovatie',
-				location: 'Elsene, Brussel',
+			project1: {
+				title: 'Houten Trap',
 				description:
-					'Volledige vervanging van 24 houten ramen met thermisch isolerend glas in een klassiek Belgisch herenhuis. Behoud van erfgoedesthetiek met moderne thermische prestaties.',
+					'Op maat gemaakte massief houten trap met elegante balustraden en met de hand afgewerkte details. Een prachtig middelpunt dat traditioneel vakmanschap combineert met moderne designesthetiek.',
 				results: [
-					'24 op maat ramen',
-					'38% energiebesparing',
-					'Erfgoed goedgekeurd',
-					'Voltooid in 2 weken'
+					'Massief hardhouten constructie',
+					'Op maat ontworpen balustrade',
+					'Met de hand afgewerkt',
+					'Gebouwd voor generaties'
 				]
 			},
-			belgian2: {
-				title: 'Boerderij Keuken & Trap',
-				location: 'Leuven, Vlaams-Brabant',
+			project2: {
+				title: 'Appartement Renovatie',
 				description:
-					'Handgemaakte eiken keuken met op maat eiland en bijpassende spiltrap. Traditioneel vakmanschap ontmoet hedendaagse Belgische landelijke stijl.',
+					'Complete vervanging van balkondeur en ramen met premium thermisch isolerend glas. Moderne esthetiek met superieure isolatie voor jaarrond comfort en energie-efficiëntie.',
 				results: [
-					'Volledige eiken keuken',
-					'Op maat trap',
-					'Geïntegreerde opslag',
-					'Droom van klant gerealiseerd'
+					'Balkondeur vervanging',
+					'Nieuwe thermische ramen',
+					'Verbeterde isolatie',
+					'Meer natuurlijk licht'
 				]
 			},
-			belgian3: {
-				title: 'Villa Volledige Renovatie',
-				location: 'Gent, Oost-Vlaanderen',
+			project3: {
+				title: 'Woning Renovatie',
 				description:
-					'Volledige renovatie inclusief houten ramen en deuren, nieuwe vloeren, badkamertegels en op maat inbouwkasten. Sleutel-op-de-deur project van ontwerp tot oplevering.',
+					'Complete transformatie van de voorgevel met een op maat gemaakte houten voordeur en bijpassende kozijnen. Premium vakmanschap dat de uitstraling verhoogt en thermische prestaties maximaliseert.',
 				results: [
-					'Ramen & deuren',
-					'Complete vloeren',
-					'3 badkamers betegeld',
-					'Alles-in-één service'
+					'Op maat gemaakte voordeur',
+					'Bijpassende kozijnen',
+					'Verbeterde uitstraling',
+					'Superieure thermische efficiëntie'
 				]
 			}
 		},
