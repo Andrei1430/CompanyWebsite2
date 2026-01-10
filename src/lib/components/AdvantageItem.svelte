@@ -10,14 +10,14 @@
 	let { icon, title, description }: Props = $props();
 </script>
 
-<div class="flex space-x-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex space-x-4 rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
 	<div class="shrink-0">
-		<div class="bg-teal-100 p-3 rounded-lg text-teal-600">
+		<div class="rounded-lg bg-amber-100 p-3 text-amber-700">
 			{@render icon()}
 		</div>
 	</div>
 	<div>
-		<h3 class="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+		<h3 class="mb-2 text-lg font-semibold text-gray-900">{title}</h3>
 		<p class="text-gray-600">{description}</p>
 	</div>
 </div>

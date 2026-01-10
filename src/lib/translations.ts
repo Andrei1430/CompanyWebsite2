@@ -7,8 +7,16 @@ export interface Translation {
 		contact: string;
 		getQuote: string;
 	};
+	promo: {
+		badge: string;
+		mainDiscount: string;
+		referralDiscount: string;
+		validUntil: string;
+		totalSavings: string;
+	};
 	hero: {
 		badge: string;
+		manufacturerBadge: string;
 		title: string;
 		titleHighlight: string;
 		description: string;
@@ -23,17 +31,24 @@ export interface Translation {
 	services: {
 		title: string;
 		subtitle: string;
-		thermalGlass: {
+		primaryLabel: string;
+		secondaryLabel: string;
+		woodenJoinery: {
 			title: string;
 			description: string;
 			features: string[];
 		};
-		windowFrames: {
+		interiorJoinery: {
 			title: string;
 			description: string;
 			features: string[];
 		};
-		doorFrames: {
+		fullRenovation: {
+			title: string;
+			description: string;
+			features: string[];
+		};
+		pvcAluminum: {
 			title: string;
 			description: string;
 			features: string[];
@@ -42,19 +57,19 @@ export interface Translation {
 	advantages: {
 		title: string;
 		subtitle: string;
-		energy: {
+		manufacturer: {
 			title: string;
 			description: string;
 		};
-		comfort: {
+		thermal: {
 			title: string;
 			description: string;
 		};
-		value: {
+		quality: {
 			title: string;
 			description: string;
 		};
-		installation: {
+		custom: {
 			title: string;
 			description: string;
 		};
@@ -64,19 +79,19 @@ export interface Translation {
 		title: string;
 		subtitle: string;
 		badge: string;
-		victorian: {
+		belgian1: {
 			title: string;
 			location: string;
 			description: string;
 			results: string[];
 		};
-		apartment: {
+		belgian2: {
 			title: string;
 			location: string;
 			description: string;
 			results: string[];
 		};
-		estate: {
+		belgian3: {
 			title: string;
 			location: string;
 			description: string;
@@ -86,6 +101,7 @@ export interface Translation {
 	contact: {
 		title: string;
 		subtitle: string;
+		manufacturerNote: string;
 		form: {
 			name: string;
 			email: string;
@@ -101,10 +117,13 @@ export interface Translation {
 			serviceInterest: string;
 			serviceOptions: {
 				select: string;
-				glass: string;
-				windowFrames: string;
-				doorFrames: string;
-				full: string;
+				woodenWindows: string;
+				woodenDoors: string;
+				interiorJoinery: string;
+				staircase: string;
+				kitchen: string;
+				fullRenovation: string;
+				pvcAluminum: string;
 				assessment: string;
 			};
 			message: string;
@@ -141,101 +160,139 @@ export const translations: Record<Language, Translation> = {
 		nav: {
 			home: 'Home',
 			services: 'Services',
-			advantages: 'Advantages',
-			cases: 'Case Studies',
+			advantages: 'Why Choose Us',
+			cases: 'Our Work',
 			contact: 'Contact',
 			getQuote: 'Get Quote'
 		},
+		promo: {
+			badge: '🎉 Limited Time Offer',
+			mainDiscount: '10% OFF all orders until March 1st!',
+			referralDiscount: '+10% extra for successful referrals',
+			validUntil: 'Valid until March 1st, 2026',
+			totalSavings: 'Save over 20% when you refer new clients!'
+		},
 		hero: {
-			badge: 'Energy Efficiency Experts',
-			title: 'Windows, Doors and',
-			titleHighlight: 'Glass Replacements',
+			badge: 'Direct Manufacturer - No Middleman',
+			manufacturerBadge: 'We Manufacture, We Install',
+			title: 'Premium Wooden Joinery &',
+			titleHighlight: 'Thermal Efficiency',
 			description:
-				"Specializing in advanced window glass replacement and frame solutions that dramatically improve your home's thermal coefficient. Save energy, reduce costs, and enhance comfort.",
-			ctaPrimary: 'Request Free Assessment',
-			ctaSecondary: 'Explore Services',
+				'Expert craftsmen manufacturing custom wooden windows, doors, and interior joinery with thermal spacer glass. Also available in PVC and aluminum. Direct from our workshop to your home – quality guaranteed.',
+			ctaPrimary: 'Request Free Quote',
+			ctaSecondary: 'View Our Services',
 			stats: {
 				projects: 'Projects Completed',
 				satisfaction: 'Client Satisfaction',
-				savings: 'Avg. Energy Savings'
+				savings: 'Energy Savings'
 			}
 		},
 		services: {
 			title: 'Our Services',
-			subtitle: "Comprehensive thermal efficiency solutions tailored to your home's unique needs",
-			thermalGlass: {
-				title: 'Thermal Glass Replacement',
+			subtitle:
+				'From traditional wooden craftsmanship to modern renovation solutions – all manufactured in-house',
+			primaryLabel: 'Primary Specialty',
+			secondaryLabel: 'Also Available',
+			woodenJoinery: {
+				title: 'Wooden Windows & Doors',
 				description:
-					'Upgrade to high-performance double or triple-glazed windows with advanced thermal insulation properties. Significantly reduce heat loss and improve comfort.',
-				features: ['Low-E coating', 'Argon gas filling', 'Warm edge spacers']
+					'Premium wooden windows and doors with thermal spacer glass for superior insulation. Custom-crafted in our workshop with traditional joinery techniques and modern thermal technology.',
+				features: [
+					'Thermal spacer glass',
+					'Oak, pine & hardwoods',
+					'Custom designs',
+					'25-year warranty'
+				]
 			},
-			windowFrames: {
-				title: 'Window Frame Replacement',
+			interiorJoinery: {
+				title: 'Interior Joinery',
 				description:
-					'Modern wood frames engineered for superior insulation and durability. Eliminate thermal bridges and air leaks.',
-				features: ['Multi-chamber design', 'Weather sealing', '25-year warranty']
+					"Beautiful custom staircases, kitchen furniture, built-in wardrobes, and interior doors. Handcrafted from quality wood to match your home's character.",
+				features: ['Custom staircases', 'Kitchen cabinets', 'Built-in wardrobes', 'Interior doors']
 			},
-			doorFrames: {
-				title: 'Door Frame Solutions',
+			fullRenovation: {
+				title: 'Full Renovations',
 				description:
-					'Energy-efficient door frames that maintain thermal integrity while enhancing security and aesthetics. Perfect for entry and patio doors.',
-				features: ['Thermal break technology', 'Secure locking systems', 'Custom sizing']
+					'Complete home renovation services including tiling, flooring, plastering, and finishing work. One contractor for your entire project from start to finish.',
+				features: ['Tiles & flooring', 'Wall finishing', 'Complete bathrooms', 'Turn-key projects']
+			},
+			pvcAluminum: {
+				title: 'PVC & Aluminum Options',
+				description:
+					'Modern PVC and aluminum windows and doors for those preferring low-maintenance alternatives. Same thermal efficiency, different material options.',
+				features: [
+					'Low maintenance',
+					'Thermal break profiles',
+					'Modern aesthetics',
+					'Color options'
+				]
 			}
 		},
 		advantages: {
-			title: 'Why Choose Our Solutions',
-			subtitle: 'Experience measurable benefits from day one',
-			energy: {
-				title: 'Lower Energy Bills',
+			title: 'Why Choose WoodCraft Joinery',
+			subtitle: 'Direct manufacturer with decades of craftsmanship experience',
+			manufacturer: {
+				title: 'Direct Manufacturer',
 				description:
-					'Reduce heating and cooling costs by up to 30% with improved thermal insulation. Most installations pay for themselves within 5-7 years.'
+					'We manufacture everything in our own workshop – no middleman, no markup. You deal directly with the craftsmen who build your windows, doors, and furniture.'
 			},
-			comfort: {
-				title: 'Enhanced Comfort',
+			thermal: {
+				title: 'Superior Thermal Efficiency',
 				description:
-					'Eliminate cold spots and drafts. Maintain consistent indoor temperatures year-round for a more comfortable living environment.'
+					'Our thermal spacer glass and precision-fitted frames reduce heat loss by up to 40%. Lower energy bills and a more comfortable home year-round.'
 			},
-			value: {
-				title: 'Increased Property Value',
+			quality: {
+				title: 'Artisan Quality',
 				description:
-					'Energy-efficient upgrades boost home value and appeal to eco-conscious buyers. Improve your Energy Performance Certificate rating.'
+					'Traditional joinery techniques combined with modern technology. Every piece is crafted with attention to detail and built to last generations.'
 			},
-			installation: {
-				title: 'Quick Installation',
+			custom: {
+				title: 'Fully Custom Solutions',
 				description:
-					'Professional installation completed in 1-3 days for most homes. Minimal disruption with thorough preparation and cleanup included.'
+					'No standard sizes here. Every window, door, and piece of furniture is made to your exact specifications and style preferences.'
 			},
-			uValue: 'U-value'
+			uValue: 'Thermal Performance'
 		},
 		cases: {
-			title: 'Case Studies',
-			subtitle: 'Real results from real homes',
-			badge: 'Success Story',
-			victorian: {
-				title: 'Victorian Home Renovation',
-				location: 'Central District',
+			title: 'Our Recent Projects',
+			subtitle: 'Quality craftsmanship across Belgium and beyond',
+			badge: 'Completed Project',
+			belgian1: {
+				title: 'Brussels Townhouse Renovation',
+				location: 'Ixelles, Brussels',
 				description:
-					'Complete window replacement with heritage-style triple-glazed units. Maintained period aesthetics while achieving modern thermal performance.',
-				results: ['35% energy reduction', 'EPC rating: D to B', 'Completed in 4 days']
+					'Complete replacement of 24 wooden windows with thermal spacer glass in a classic Belgian townhouse. Preserved heritage aesthetics while achieving modern thermal performance.',
+				results: [
+					'24 custom windows',
+					'38% energy savings',
+					'Heritage approved',
+					'Completed in 2 weeks'
+				]
 			},
-			apartment: {
-				title: 'Modern Apartment Complex',
-				location: 'Riverside Development',
+			belgian2: {
+				title: 'Farmhouse Kitchen & Staircase',
+				location: 'Leuven, Flemish Brabant',
 				description:
-					'Full building upgrade with thermally broken aluminum frames and low-E glass. Improved resident comfort and reduced common area heating costs.',
-				results: ['28% cost savings', '42 units completed', 'Zero complaints']
+					'Handcrafted oak kitchen with custom island and matching spiral staircase. Traditional craftsmanship meeting contemporary Belgian country style.',
+				results: [
+					'Full oak kitchen',
+					'Custom staircase',
+					'Integrated storage',
+					"Client's dream realized"
+				]
 			},
-			estate: {
-				title: 'Country Estate',
-				location: 'Rural Highlands',
+			belgian3: {
+				title: 'Villa Complete Renovation',
+				location: 'Ghent, East Flanders',
 				description:
-					'Premium timber frames with advanced thermal breaks. Large glazed areas without compromising on insulation performance.',
-				results: ['40% efficiency gain', 'Custom sizing', 'Award-winning design']
+					'Full renovation including wooden windows and doors, new flooring throughout, bathroom tiling, and custom built-in wardrobes. Turn-key project from design to completion.',
+				results: ['Windows & doors', 'Complete flooring', '3 bathrooms tiled', 'All-in-one service']
 			}
 		},
 		contact: {
-			title: 'Get Your Free Assessment',
-			subtitle: "Let's discuss how we can improve your home's thermal efficiency",
+			title: 'Get Your Free Quote',
+			subtitle: 'Tell us about your project and receive a no-obligation quote within 48 hours',
+			manufacturerNote: 'Direct from our workshop – no middleman pricing',
 			form: {
 				name: 'Full Name',
 				email: 'Email Address',
@@ -251,139 +308,190 @@ export const translations: Record<Language, Translation> = {
 				serviceInterest: 'Service Interest',
 				serviceOptions: {
 					select: 'Select service',
-					glass: 'Window Glass Replacement',
-					windowFrames: 'Window Frame Replacement',
-					doorFrames: 'Door Frame Solutions',
-					full: 'Complete System Upgrade',
-					assessment: 'Just Need Assessment'
+					woodenWindows: 'Wooden Windows',
+					woodenDoors: 'Wooden Doors',
+					interiorJoinery: 'Interior Joinery',
+					staircase: 'Custom Staircase',
+					kitchen: 'Kitchen Furniture',
+					fullRenovation: 'Full Renovation',
+					pvcAluminum: 'PVC/Aluminum Joinery',
+					assessment: 'Free Assessment Visit'
 				},
-				message: 'Message',
-				messagePlaceholder: 'Tell us about your project and any specific requirements...',
-				submit: 'Send Inquiry',
-				namePlaceholder: 'John Smith',
-				emailPlaceholder: 'john@example.com',
-				phonePlaceholder: '+1 (555) 000-0000'
+				message: 'Project Details',
+				messagePlaceholder:
+					'Describe your project: number of windows/doors, type of work, preferred materials, timeline...',
+				submit: 'Request Free Quote',
+				namePlaceholder: 'Your name',
+				emailPlaceholder: 'your.email@example.com',
+				phonePlaceholder: '+32 XXX XX XX XX'
 			},
 			info: {
 				phone: 'Phone',
 				email: 'Email',
 				location: 'Location',
-				locationText: 'Serving Nationwide'
+				locationText: 'Serving all of Belgium'
 			}
 		},
 		footer: {
 			description:
-				'Leading experts in thermal efficiency solutions for residential and commercial properties.',
+				'Master craftsmen manufacturing premium wooden joinery since 1995. Windows, doors, staircases, kitchens, and complete renovations. Direct manufacturer – quality guaranteed.',
 			quickLinks: 'Quick Links',
 			businessHours: 'Business Hours',
 			schedule: {
-				weekdays: 'Monday - Friday: 8:00 AM - 6:00 PM',
-				saturday: 'Saturday: 9:00 AM - 4:00 PM',
+				weekdays: 'Monday - Friday: 7:00 AM - 6:00 PM',
+				saturday: 'Saturday: 8:00 AM - 2:00 PM',
 				sunday: 'Sunday: Closed'
 			},
-			copyright: 'All rights reserved. Improving homes, one window at a time.'
+			copyright: 'All rights reserved. Crafting quality since 1995.'
 		}
 	},
 	nl: {
 		nav: {
 			home: 'Home',
 			services: 'Diensten',
-			advantages: 'Voordelen',
-			cases: 'Casestudies',
+			advantages: 'Waarom Wij',
+			cases: 'Ons Werk',
 			contact: 'Contact',
 			getQuote: 'Offerte Aanvragen'
 		},
+		promo: {
+			badge: '🎉 Tijdelijke Aanbieding',
+			mainDiscount: '10% KORTING op alle bestellingen tot 1 maart!',
+			referralDiscount: '+10% extra bij succesvolle doorverwijzing',
+			validUntil: 'Geldig tot 1 maart 2026',
+			totalSavings: 'Bespaar meer dan 20% wanneer u nieuwe klanten doorverwijst!'
+		},
 		hero: {
-			badge: 'Energie-efficiëntie Experts',
-			title: 'Ramen, Deuren en',
-			titleHighlight: 'Glasvervanging',
+			badge: 'Directe Fabrikant - Geen Tussenpersoon',
+			manufacturerBadge: 'Wij Produceren, Wij Plaatsen',
+			title: 'Premium Houten Schrijnwerk &',
+			titleHighlight: 'Thermische Efficiëntie',
 			description:
-				'Gespecialiseerd in geavanceerde glasvervanging en kozijnoplossingen die de thermische coëfficiënt van uw woning drastisch verbeteren. Bespaar energie, verlaag kosten en verhoog het comfort.',
-			ctaPrimary: 'Gratis Beoordeling Aanvragen',
-			ctaSecondary: 'Ontdek Diensten',
+				'Vakbekwame ambachtslieden die op maat gemaakte houten ramen, deuren en interieur schrijnwerk vervaardigen met thermisch isolerend glas. Ook verkrijgbaar in PVC en aluminium. Direct van onze werkplaats naar uw woning – kwaliteit gegarandeerd.',
+			ctaPrimary: 'Gratis Offerte Aanvragen',
+			ctaSecondary: 'Bekijk Onze Diensten',
 			stats: {
 				projects: 'Voltooide Projecten',
 				satisfaction: 'Klanttevredenheid',
-				savings: 'Gem. Energiebesparing'
+				savings: 'Energiebesparing'
 			}
 		},
 		services: {
 			title: 'Onze Diensten',
-			subtitle: 'Uitgebreide thermische efficiëntieoplossingen op maat van uw woning',
-			thermalGlass: {
-				title: 'Thermisch Glas Vervanging',
+			subtitle:
+				'Van traditioneel houtambacht tot moderne renovatieoplossingen – alles in eigen beheer geproduceerd',
+			primaryLabel: 'Primaire Specialiteit',
+			secondaryLabel: 'Ook Beschikbaar',
+			woodenJoinery: {
+				title: 'Houten Ramen & Deuren',
 				description:
-					'Upgrade naar hoogwaardige dubbel- of driedubbele beglazing met geavanceerde thermische isolatie-eigenschappen. Verminder warmteverlies aanzienlijk en verbeter het comfort.',
-				features: ['Low-E coating', 'Argongas vulling', 'Warme rand spacers']
+					'Premium houten ramen en deuren met thermisch isolerend glas voor superieure isolatie. Op maat gemaakt in onze werkplaats met traditionele schrijnwerktechnieken en moderne thermische technologie.',
+				features: [
+					'Thermisch isolerend glas',
+					'Eik, grenen & hardhout',
+					'Op maat ontwerp',
+					'25 jaar garantie'
+				]
 			},
-			windowFrames: {
-				title: 'Kozijnvervanging',
+			interiorJoinery: {
+				title: 'Interieur Schrijnwerk',
 				description:
-					'Moderne houten kozijnen ontworpen voor superieure isolatie en duurzaamheid. Elimineer koudebruggen en luchtlekken.',
-				features: ['Multi-kamer ontwerp', 'Weersafdichting', '25 jaar garantie']
+					'Prachtige op maat gemaakte trappen, keukenmeubilair, inbouwkasten en binnendeuren. Handgemaakt van kwaliteitshout, passend bij het karakter van uw woning.',
+				features: ['Op maat gemaakte trappen', 'Keukenkasten', 'Inbouwkasten', 'Binnendeuren']
 			},
-			doorFrames: {
-				title: 'Deurkozijn Oplossingen',
+			fullRenovation: {
+				title: 'Volledige Renovaties',
 				description:
-					'Energie-efficiënte deurkozijnen die thermische integriteit behouden terwijl ze veiligheid en esthetiek verbeteren. Perfect voor toegangs- en terrasdeuren.',
-				features: ['Thermische onderbreking technologie', 'Veilige slotsystemen', 'Op maat gemaakt']
+					'Complete woningrenovatiediensten inclusief tegelwerk, vloeren, pleisterwerk en afwerking. Eén aannemer voor uw volledige project van begin tot eind.',
+				features: [
+					'Tegels & vloeren',
+					'Wandafwerking',
+					'Complete badkamers',
+					'Sleutel-op-de-deur projecten'
+				]
+			},
+			pvcAluminum: {
+				title: 'PVC & Aluminium Opties',
+				description:
+					'Moderne PVC en aluminium ramen en deuren voor wie de voorkeur geeft aan onderhoudsarme alternatieven. Dezelfde thermische efficiëntie, verschillende materiaalopties.',
+				features: [
+					'Onderhoudsarm',
+					'Thermisch onderbroken profielen',
+					'Moderne esthetiek',
+					'Kleuropties'
+				]
 			}
 		},
 		advantages: {
-			title: 'Waarom Kiezen Voor Onze Oplossingen',
-			subtitle: 'Ervaar meetbare voordelen vanaf dag één',
-			energy: {
-				title: 'Lagere Energierekeningen',
+			title: 'Waarom Kiezen voor WoodCraft Schrijnwerkerij',
+			subtitle: 'Directe fabrikant met tientallen jaren vakmanschap ervaring',
+			manufacturer: {
+				title: 'Directe Fabrikant',
 				description:
-					'Verlaag verwarmings- en koelkosten met tot 30% door verbeterde thermische isolatie. De meeste installaties verdienen zichzelf terug binnen 5-7 jaar.'
+					'Wij produceren alles in onze eigen werkplaats – geen tussenpersoon, geen opslag. U heeft direct contact met de ambachtslieden die uw ramen, deuren en meubels maken.'
 			},
-			comfort: {
-				title: 'Verbeterd Comfort',
+			thermal: {
+				title: 'Superieure Thermische Efficiëntie',
 				description:
-					'Elimineer koude plekken en tocht. Handhaaf het hele jaar door consistente binnentemperaturen voor een comfortabelere leefomgeving.'
+					'Ons thermisch isolerend glas en precies passende kozijnen verminderen warmteverlies tot 40%. Lagere energierekeningen en een comfortabelere woning het hele jaar door.'
 			},
-			value: {
-				title: 'Verhoogde Woningwaarde',
+			quality: {
+				title: 'Ambachtelijke Kwaliteit',
 				description:
-					'Energie-efficiënte upgrades verhogen de woningwaarde en spreken milieubewuste kopers aan. Verbeter uw Energieprestatiecertificaat rating.'
+					'Traditionele schrijnwerktechnieken gecombineerd met moderne technologie. Elk stuk is gemaakt met oog voor detail en gebouwd om generaties mee te gaan.'
 			},
-			installation: {
-				title: 'Snelle Installatie',
+			custom: {
+				title: 'Volledig Op Maat',
 				description:
-					'Professionele installatie voltooid in 1-3 dagen voor de meeste woningen. Minimale verstoring met grondige voorbereiding en schoonmaak inbegrepen.'
+					'Geen standaardmaten hier. Elk raam, elke deur en elk meubelstuk wordt gemaakt volgens uw exacte specificaties en stijlvoorkeuren.'
 			},
-			uValue: 'U-waarde'
+			uValue: 'Thermische Prestatie'
 		},
 		cases: {
-			title: 'Casestudies',
-			subtitle: 'Echte resultaten van echte woningen',
-			badge: 'Succesverhaal',
-			victorian: {
-				title: 'Victoriaanse Woning Renovatie',
-				location: 'Centraal District',
+			title: 'Onze Recente Projecten',
+			subtitle: 'Kwaliteitsambacht door heel België en daarbuiten',
+			badge: 'Afgerond Project',
+			belgian1: {
+				title: 'Brusselse Herenhuis Renovatie',
+				location: 'Elsene, Brussel',
 				description:
-					'Volledige kozijnvervanging met erfgoed-stijl driedubbele beglazing. Behoud van periode-esthetiek terwijl moderne thermische prestaties werden bereikt.',
-				results: ['35% energiereductie', 'EPC-rating: D naar B', 'Voltooid in 4 dagen']
+					'Volledige vervanging van 24 houten ramen met thermisch isolerend glas in een klassiek Belgisch herenhuis. Behoud van erfgoedesthetiek met moderne thermische prestaties.',
+				results: [
+					'24 op maat ramen',
+					'38% energiebesparing',
+					'Erfgoed goedgekeurd',
+					'Voltooid in 2 weken'
+				]
 			},
-			apartment: {
-				title: 'Modern Appartementencomplex',
-				location: 'Rivierontwikkeling',
+			belgian2: {
+				title: 'Boerderij Keuken & Trap',
+				location: 'Leuven, Vlaams-Brabant',
 				description:
-					'Volledige gebouw upgrade met thermisch onderbroken aluminium kozijnen en low-E glas. Verbeterd bewonerscomfort en verlaagde verwarmingskosten gemeenschappelijke ruimtes.',
-				results: ['28% kostenbesparing', '42 eenheden voltooid', 'Geen klachten']
+					'Handgemaakte eiken keuken met op maat eiland en bijpassende spiltrap. Traditioneel vakmanschap ontmoet hedendaagse Belgische landelijke stijl.',
+				results: [
+					'Volledige eiken keuken',
+					'Op maat trap',
+					'Geïntegreerde opslag',
+					'Droom van klant gerealiseerd'
+				]
 			},
-			estate: {
-				title: 'Landhuis',
-				location: 'Landelijke Hoogvlakte',
+			belgian3: {
+				title: 'Villa Volledige Renovatie',
+				location: 'Gent, Oost-Vlaanderen',
 				description:
-					'Premium houten kozijnen met geavanceerde thermische onderbrekingen. Grote glazen oppervlakken zonder in te leveren op isolatieprestaties.',
-				results: ['40% efficiëntiewinst', 'Op maat gemaakt', 'Bekroond ontwerp']
+					'Volledige renovatie inclusief houten ramen en deuren, nieuwe vloeren, badkamertegels en op maat inbouwkasten. Sleutel-op-de-deur project van ontwerp tot oplevering.',
+				results: [
+					'Ramen & deuren',
+					'Complete vloeren',
+					'3 badkamers betegeld',
+					'Alles-in-één service'
+				]
 			}
 		},
 		contact: {
-			title: 'Ontvang Uw Gratis Beoordeling',
-			subtitle:
-				'Laten we bespreken hoe we de thermische efficiëntie van uw woning kunnen verbeteren',
+			title: 'Ontvang Uw Gratis Offerte',
+			subtitle: 'Vertel ons over uw project en ontvang binnen 48 uur een vrijblijvende offerte',
+			manufacturerNote: 'Direct van onze werkplaats – geen tussenpersoon prijzen',
 			form: {
 				name: 'Volledige Naam',
 				email: 'E-mailadres',
@@ -399,37 +507,41 @@ export const translations: Record<Language, Translation> = {
 				serviceInterest: 'Interesse in Dienst',
 				serviceOptions: {
 					select: 'Selecteer dienst',
-					glass: 'Raamglas Vervanging',
-					windowFrames: 'Kozijn Vervanging',
-					doorFrames: 'Deurkozijn Oplossingen',
-					full: 'Volledige Systeem Upgrade',
-					assessment: 'Alleen Beoordeling Nodig'
+					woodenWindows: 'Houten Ramen',
+					woodenDoors: 'Houten Deuren',
+					interiorJoinery: 'Interieur Schrijnwerk',
+					staircase: 'Op Maat Trap',
+					kitchen: 'Keukenmeubilair',
+					fullRenovation: 'Volledige Renovatie',
+					pvcAluminum: 'PVC/Aluminium Schrijnwerk',
+					assessment: 'Gratis Beoordelingsbezoek'
 				},
-				message: 'Bericht',
-				messagePlaceholder: 'Vertel ons over uw project en eventuele specifieke eisen...',
-				submit: 'Aanvraag Versturen',
-				namePlaceholder: 'Jan Jansen',
-				emailPlaceholder: 'jan@voorbeeld.nl',
-				phonePlaceholder: '+31 6 12345678'
+				message: 'Projectdetails',
+				messagePlaceholder:
+					'Beschrijf uw project: aantal ramen/deuren, type werk, voorkeursmaterialen, tijdlijn...',
+				submit: 'Gratis Offerte Aanvragen',
+				namePlaceholder: 'Uw naam',
+				emailPlaceholder: 'uw.email@voorbeeld.be',
+				phonePlaceholder: '+32 XXX XX XX XX'
 			},
 			info: {
 				phone: 'Telefoon',
 				email: 'E-mail',
 				location: 'Locatie',
-				locationText: 'Landelijk Actief'
+				locationText: 'Actief in heel België'
 			}
 		},
 		footer: {
 			description:
-				'Toonaangevende experts in thermische efficiëntieoplossingen voor residentiële en commerciële eigendommen.',
+				'Meester-ambachtslieden die premium houten schrijnwerk produceren sinds 1995. Ramen, deuren, trappen, keukens en complete renovaties. Directe fabrikant – kwaliteit gegarandeerd.',
 			quickLinks: 'Snelle Links',
 			businessHours: 'Openingstijden',
 			schedule: {
-				weekdays: 'Maandag - Vrijdag: 8:00 - 18:00',
-				saturday: 'Zaterdag: 9:00 - 16:00',
+				weekdays: 'Maandag - Vrijdag: 7:00 - 18:00',
+				saturday: 'Zaterdag: 8:00 - 14:00',
 				sunday: 'Zondag: Gesloten'
 			},
-			copyright: 'Alle rechten voorbehouden. Het verbeteren van woningen, één raam tegelijk.'
+			copyright: 'Alle rechten voorbehouden. Vakmanschap sinds 1995.'
 		}
 	}
 };

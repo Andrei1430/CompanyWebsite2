@@ -78,74 +78,86 @@
 </script>
 
 <svelte:head>
-	<title>ThermalPro - Home Thermal Solutions</title>
+	<title>WoodCraft Joinery - Premium Wooden Windows, Doors & Renovations</title>
 	<meta
 		name="description"
-		content="Specializing in advanced window glass replacement and frame solutions that dramatically improve your home's thermal coefficient."
+		content="Expert craftsmen manufacturing custom wooden windows, doors, staircases, and kitchen furniture with thermal spacer glass. Direct manufacturer in Belgium. 10% discount until March 1st!"
 	/>
 </svelte:head>
 
 <div class="min-h-screen bg-white">
 	<!-- Navigation -->
 	<nav
-		class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 {isScrolled
+		class="fixed top-0 right-0 left-0 z-50 transition-all duration-300 {isScrolled
 			? 'bg-white shadow-lg'
 			: 'bg-white/95 backdrop-blur-sm'}"
 	>
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="flex justify-between items-center h-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="flex h-20 items-center justify-between">
 				<div class="flex items-center space-x-2">
-					<Thermometer class="w-8 h-8 text-teal-600" />
-					<span class="text-2xl font-bold text-gray-900">ThermalPro</span>
+					<svg
+						class="h-8 w-8 text-amber-700"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M12 22v-7l-2-2" />
+						<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
+						<path d="m14 14-2-2" />
+					</svg>
+					<span class="text-2xl font-bold text-gray-900">WoodCraft</span>
 				</div>
 
-				<div class="hidden md:flex items-center space-x-8">
+				<div class="hidden items-center space-x-8 md:flex">
 					{#each navItems as item}
 						<button
 							onclick={() => scrollToSection(item.id)}
 							class="text-sm font-medium transition-colors {activeSection === item.id
-								? 'text-teal-600'
-								: 'text-gray-700 hover:text-teal-600'}"
+								? 'text-amber-700'
+								: 'text-gray-700 hover:text-amber-700'}"
 						>
 							{item.label}
 						</button>
 					{/each}
 					<button
 						onclick={toggleLanguage}
-						class="flex items-center space-x-2 text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
+						class="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-amber-700"
 						title={language === 'en' ? 'Switch to Nederlands' : 'Schakel naar Engels'}
 					>
-						<Languages class="w-5 h-5" />
+						<Languages class="h-5 w-5" />
 						<span class="uppercase">{language === 'en' ? 'NL' : 'EN'}</span>
 					</button>
 				</div>
 
 				<button
 					onclick={() => scrollToSection('contact')}
-					class="hidden md:block bg-teal-600 text-white px-6 py-2.5 rounded-lg hover:bg-teal-700 transition-colors font-medium"
+					class="hidden rounded-lg bg-amber-700 px-6 py-2.5 font-medium text-white transition-colors hover:bg-amber-800 md:block"
 				>
 					{t.nav.getQuote}
 				</button>
 
-				<button onclick={() => (isMenuOpen = !isMenuOpen)} class="md:hidden p-2 text-gray-700">
+				<button onclick={() => (isMenuOpen = !isMenuOpen)} class="p-2 text-gray-700 md:hidden">
 					{#if isMenuOpen}
-						<X class="w-6 h-6" />
+						<X class="h-6 w-6" />
 					{:else}
-						<Menu class="w-6 h-6" />
+						<Menu class="h-6 w-6" />
 					{/if}
 				</button>
 			</div>
 		</div>
 
 		{#if isMenuOpen}
-			<div class="md:hidden bg-white border-t border-gray-200">
-				<div class="px-4 py-4 space-y-3">
+			<div class="border-t border-gray-200 bg-white md:hidden">
+				<div class="space-y-3 px-4 py-4">
 					{#each navItems as item}
 						<button
 							onclick={() => scrollToSection(item.id)}
-							class="block w-full text-left px-4 py-2 rounded-lg transition-colors {activeSection ===
+							class="block w-full rounded-lg px-4 py-2 text-left transition-colors {activeSection ===
 							item.id
-								? 'bg-teal-50 text-teal-600'
+								? 'bg-amber-50 text-amber-700'
 								: 'text-gray-700 hover:bg-gray-50'}"
 						>
 							{item.label}
@@ -153,14 +165,14 @@
 					{/each}
 					<button
 						onclick={toggleLanguage}
-						class="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+						class="flex w-full items-center space-x-2 rounded-lg px-4 py-2 text-gray-700 transition-colors hover:bg-gray-50"
 					>
-						<Languages class="w-5 h-5" />
+						<Languages class="h-5 w-5" />
 						<span>{language === 'en' ? 'Nederlands' : 'English'}</span>
 					</button>
 					<button
 						onclick={() => scrollToSection('contact')}
-						class="w-full bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors font-medium"
+						class="w-full rounded-lg bg-amber-700 px-4 py-2 font-medium text-white transition-colors hover:bg-amber-800"
 					>
 						{t.nav.getQuote}
 					</button>
@@ -172,100 +184,177 @@
 	<!-- Hero Section -->
 	<section
 		id="home"
-		class="pt-20 min-h-screen flex items-center bg-gradient-to-br from-teal-50 via-white to-cyan-50 relative overflow-hidden"
+		class="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-amber-50 via-white to-orange-50 pt-20"
 	>
-		<div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-			<div class="grid lg:grid-cols-2 gap-12 items-center">
-				<div class="space-y-8 animate-fade-in">
-					<div class="inline-block">
-						<span class="bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold">
+		<div class="bg-grid-pattern absolute inset-0 opacity-5"></div>
+		<!-- Promotional Banner -->
+		<div
+			class="absolute top-20 right-0 left-0 z-20 bg-gradient-to-r from-amber-600 to-orange-500 px-4 py-3 text-center text-white"
+		>
+			<div
+				class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 sm:flex-row sm:gap-6"
+			>
+				<span class="text-lg font-bold">{t.promo.badge}</span>
+				<span class="hidden sm:inline">|</span>
+				<span>{t.promo.mainDiscount}</span>
+				<span class="hidden md:inline">•</span>
+				<span class="hidden md:inline">{t.promo.referralDiscount}</span>
+			</div>
+		</div>
+		<div class="relative z-10 mx-auto max-w-7xl px-4 py-20 pt-32 sm:px-6 lg:px-8">
+			<div class="grid items-center gap-12 lg:grid-cols-2">
+				<div class="animate-fade-in space-y-8">
+					<div class="flex flex-wrap gap-2">
+						<span class="rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-800">
 							{t.hero.badge}
 						</span>
+						<span class="rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-800">
+							{t.hero.manufacturerBadge}
+						</span>
 					</div>
-					<h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+					<h1 class="text-5xl leading-tight font-bold text-gray-900 lg:text-6xl">
 						{t.hero.title}
-						<span class="text-teal-600"> {t.hero.titleHighlight}</span>
+						<span class="text-amber-700"> {t.hero.titleHighlight}</span>
 					</h1>
-					<p class="text-xl text-gray-600 leading-relaxed">
+					<p class="text-xl leading-relaxed text-gray-600">
 						{t.hero.description}
 					</p>
-					<div class="flex flex-col sm:flex-row gap-4">
+					<div class="flex flex-col gap-4 sm:flex-row">
 						<button
 							onclick={() => scrollToSection('contact')}
-							class="bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition-all font-semibold flex items-center justify-center group"
+							class="group flex items-center justify-center rounded-lg bg-amber-700 px-8 py-4 font-semibold text-white transition-all hover:bg-amber-800"
 						>
 							{t.hero.ctaPrimary}
-							<ArrowRight
-								class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
-							/>
+							<ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
 						</button>
 						<button
 							onclick={() => scrollToSection('services')}
-							class="border-2 border-teal-600 text-teal-600 px-8 py-4 rounded-lg hover:bg-teal-50 transition-all font-semibold"
+							class="rounded-lg border-2 border-amber-700 px-8 py-4 font-semibold text-amber-700 transition-all hover:bg-amber-50"
 						>
 							{t.hero.ctaSecondary}
 						</button>
 					</div>
 				</div>
-				<div class="relative lg:h-[600px] animate-slide-in">
+				<div class="animate-slide-in relative lg:h-[600px]">
 					<div
-						class="absolute inset-0 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-3xl transform rotate-3 opacity-20"
+						class="absolute inset-0 rotate-3 transform rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 opacity-20"
 					></div>
 					<img
-						src="/images/Photo1.jpg"
-						alt="Modern home with efficient windows"
-						class="relative rounded-3xl shadow-2xl w-full h-full object-cover"
+						src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+						alt="Beautiful wooden window craftsmanship"
+						class="relative h-full w-full rounded-3xl object-cover shadow-2xl"
 					/>
 				</div>
 			</div>
 		</div>
 		<button
 			onclick={() => scrollToSection('services')}
-			class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+			class="absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce"
 		>
-			<ChevronDown class="w-8 h-8 text-teal-600" />
+			<ChevronDown class="h-8 w-8 text-amber-700" />
 		</button>
 	</section>
 
 	<!-- Services Section -->
-	<section id="services" class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-16">
-				<h2 class="text-4xl font-bold text-gray-900 mb-4">
+	<section id="services" class="bg-white py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-16 text-center">
+				<h2 class="mb-4 text-4xl font-bold text-gray-900">
 					{t.services.title}
 				</h2>
-				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+				<p class="mx-auto max-w-3xl text-xl text-gray-600">
 					{t.services.subtitle}
 				</p>
 			</div>
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<!-- Primary Service Highlight -->
+			<div class="mb-8">
+				<span class="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-800">
+					{t.services.primaryLabel}
+				</span>
+			</div>
+
+			<div class="mb-12 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
 				<ServiceCard
-					title={t.services.thermalGlass.title}
-					description={t.services.thermalGlass.description}
-					features={t.services.thermalGlass.features}
+					title={t.services.woodenJoinery.title}
+					description={t.services.woodenJoinery.description}
+					features={t.services.woodenJoinery.features}
 				>
 					{#snippet icon()}
-						<Thermometer class="w-12 h-12" />
+						<svg
+							class="h-12 w-12"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<rect x="3" y="3" width="18" height="18" rx="2" />
+							<line x1="3" y1="9" x2="21" y2="9" />
+							<line x1="9" y1="21" x2="9" y2="9" />
+						</svg>
 					{/snippet}
 				</ServiceCard>
 				<ServiceCard
-					title={t.services.windowFrames.title}
-					description={t.services.windowFrames.description}
-					features={t.services.windowFrames.features}
+					title={t.services.interiorJoinery.title}
+					description={t.services.interiorJoinery.description}
+					features={t.services.interiorJoinery.features}
 				>
 					{#snippet icon()}
-						<Shield class="w-12 h-12" />
+						<svg
+							class="h-12 w-12"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M22 12 L18 22 L6 22 L2 12" />
+							<path d="M12 2 L12 12" />
+							<path d="M4.5 7 L12 12 L19.5 7" />
+							<path d="M4.5 7 L12 2 L19.5 7" />
+						</svg>
+					{/snippet}
+				</ServiceCard>
+			</div>
+
+			<!-- Secondary Services -->
+			<div class="mb-8">
+				<span class="rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700">
+					{t.services.secondaryLabel}
+				</span>
+			</div>
+
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+				<ServiceCard
+					title={t.services.fullRenovation.title}
+					description={t.services.fullRenovation.description}
+					features={t.services.fullRenovation.features}
+				>
+					{#snippet icon()}
+						<svg
+							class="h-12 w-12"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+							<polyline points="9 22 9 12 15 12 15 22" />
+						</svg>
 					{/snippet}
 				</ServiceCard>
 				<ServiceCard
-					title={t.services.doorFrames.title}
-					description={t.services.doorFrames.description}
-					features={t.services.doorFrames.features}
+					title={t.services.pvcAluminum.title}
+					description={t.services.pvcAluminum.description}
+					features={t.services.pvcAluminum.features}
 				>
 					{#snippet icon()}
-						<Shield class="w-12 h-12" />
+						<Shield class="h-12 w-12" />
 					{/snippet}
 				</ServiceCard>
 			</div>
@@ -273,68 +362,94 @@
 	</section>
 
 	<!-- Advantages Section -->
-	<section id="advantages" class="py-20 bg-gray-50">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-16">
-				<h2 class="text-4xl font-bold text-gray-900 mb-4">
+	<section id="advantages" class="bg-gray-50 py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-16 text-center">
+				<h2 class="mb-4 text-4xl font-bold text-gray-900">
 					{t.advantages.title}
 				</h2>
-				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+				<p class="mx-auto max-w-3xl text-xl text-gray-600">
 					{t.advantages.subtitle}
 				</p>
 			</div>
 
-			<div class="grid lg:grid-cols-2 gap-12 items-center">
+			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<div class="space-y-6">
 					<AdvantageItem
-						title={t.advantages.energy.title}
-						description={t.advantages.energy.description}
+						title={t.advantages.manufacturer.title}
+						description={t.advantages.manufacturer.description}
 					>
 						{#snippet icon()}
-							<Euro class="w-6 h-6" />
+							<svg
+								class="h-6 w-6"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
+								/>
+								<path d="M17 18h1" />
+								<path d="M12 18h1" />
+								<path d="M7 18h1" />
+							</svg>
 						{/snippet}
 					</AdvantageItem>
 					<AdvantageItem
-						title={t.advantages.comfort.title}
-						description={t.advantages.comfort.description}
+						title={t.advantages.thermal.title}
+						description={t.advantages.thermal.description}
 					>
 						{#snippet icon()}
-							<Thermometer class="w-6 h-6" />
+							<Thermometer class="h-6 w-6" />
 						{/snippet}
 					</AdvantageItem>
 					<AdvantageItem
-						title={t.advantages.value.title}
-						description={t.advantages.value.description}
+						title={t.advantages.quality.title}
+						description={t.advantages.quality.description}
 					>
 						{#snippet icon()}
-							<Shield class="w-6 h-6" />
+							<Shield class="h-6 w-6" />
 						{/snippet}
 					</AdvantageItem>
 					<AdvantageItem
-						title={t.advantages.installation.title}
-						description={t.advantages.installation.description}
+						title={t.advantages.custom.title}
+						description={t.advantages.custom.description}
 					>
 						{#snippet icon()}
-							<Clock class="w-6 h-6" />
+							<svg
+								class="h-6 w-6"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+								<path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z" />
+							</svg>
 						{/snippet}
 					</AdvantageItem>
 				</div>
 				<div class="relative">
 					<img
-						src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop"
-						alt="Energy efficient home interior"
+						src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
+						alt="Beautiful Belgian home with wooden windows"
 						class="rounded-2xl shadow-2xl"
 					/>
-					<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
+					<div class="absolute -bottom-6 -left-6 rounded-xl bg-white p-6 shadow-xl">
 						<div class="flex items-center space-x-4">
-							<div class="bg-teal-100 p-3 rounded-lg">
-								<Thermometer class="w-8 h-8 text-teal-600" />
+							<div class="rounded-lg bg-amber-100 p-3">
+								<Thermometer class="h-8 w-8 text-amber-700" />
 							</div>
 							<div>
 								<div class="text-2xl font-bold text-gray-900">
 									{t.advantages.uValue}
 								</div>
-								<div class="text-sm text-gray-600">From 2.8 to 0.8 W/m²K</div>
+								<div class="text-sm text-gray-600">Up to 40% heat loss reduction</div>
 							</div>
 						</div>
 					</div>
@@ -344,40 +459,40 @@
 	</section>
 
 	<!-- Cases Section -->
-	<section id="cases" class="py-20 bg-white">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-16">
-				<h2 class="text-4xl font-bold text-gray-900 mb-4">
+	<section id="cases" class="bg-white py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-16 text-center">
+				<h2 class="mb-4 text-4xl font-bold text-gray-900">
 					{t.cases.title}
 				</h2>
-				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+				<p class="mx-auto max-w-3xl text-xl text-gray-600">
 					{t.cases.subtitle}
 				</p>
 			</div>
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<CaseStudy
-					image="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=400&fit=crop"
-					title={t.cases.victorian.title}
-					location={t.cases.victorian.location}
-					description={t.cases.victorian.description}
-					results={t.cases.victorian.results}
+					image="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop"
+					title={t.cases.belgian1.title}
+					location={t.cases.belgian1.location}
+					description={t.cases.belgian1.description}
+					results={t.cases.belgian1.results}
 					badge={t.cases.badge}
 				/>
 				<CaseStudy
-					image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop"
-					title={t.cases.apartment.title}
-					location={t.cases.apartment.location}
-					description={t.cases.apartment.description}
-					results={t.cases.apartment.results}
+					image="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop"
+					title={t.cases.belgian2.title}
+					location={t.cases.belgian2.location}
+					description={t.cases.belgian2.description}
+					results={t.cases.belgian2.results}
 					badge={t.cases.badge}
 				/>
 				<CaseStudy
-					image="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop"
-					title={t.cases.estate.title}
-					location={t.cases.estate.location}
-					description={t.cases.estate.description}
-					results={t.cases.estate.results}
+					image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop"
+					title={t.cases.belgian3.title}
+					location={t.cases.belgian3.location}
+					description={t.cases.belgian3.description}
+					results={t.cases.belgian3.results}
 					badge={t.cases.badge}
 				/>
 			</div>
@@ -385,24 +500,33 @@
 	</section>
 
 	<!-- Contact Section -->
-	<section id="contact" class="py-20 bg-gradient-to-br from-teal-50 to-cyan-50">
-		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="text-center mb-12">
-				<h2 class="text-4xl font-bold text-gray-900 mb-4">
+	<section id="contact" class="bg-gradient-to-br from-amber-50 to-orange-50 py-20">
+		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-12 text-center">
+				<h2 class="mb-4 text-4xl font-bold text-gray-900">
 					{t.contact.title}
 				</h2>
 				<p class="text-xl text-gray-600">{t.contact.subtitle}</p>
+				<p class="mt-2 font-semibold text-amber-700">{t.contact.manufacturerNote}</p>
 			</div>
 
-			<div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+			<!-- Discount reminder box -->
+			<div
+				class="mb-8 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-center text-white"
+			>
+				<p class="mb-2 text-xl font-bold">{t.promo.mainDiscount}</p>
+				<p class="text-sm opacity-90">{t.promo.totalSavings}</p>
+			</div>
+
+			<div class="rounded-2xl bg-white p-8 shadow-xl lg:p-12">
 				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
 					<input type="hidden" name="access_key" value="321a5c5d-60f4-474d-8566-2a55ff1c1233" />
-					<input type="hidden" name="subject" value="New Thermal Efficiency Inquiry" />
-					<input type="hidden" name="from_name" value="ThermalPro Website" />
+					<input type="hidden" name="subject" value="New Joinery Inquiry - WoodCraft" />
+					<input type="hidden" name="from_name" value="WoodCraft Joinery Website" />
 
-					<div class="grid md:grid-cols-2 gap-6">
+					<div class="grid gap-6 md:grid-cols-2">
 						<div>
-							<label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+							<label for="name" class="mb-2 block text-sm font-medium text-gray-700">
 								{t.contact.form.name} *
 							</label>
 							<input
@@ -410,12 +534,12 @@
 								id="name"
 								name="name"
 								required
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+								class="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all focus:border-transparent focus:ring-2 focus:ring-amber-500"
 								placeholder={t.contact.form.namePlaceholder}
 							/>
 						</div>
 						<div>
-							<label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+							<label for="email" class="mb-2 block text-sm font-medium text-gray-700">
 								{t.contact.form.email} *
 							</label>
 							<input
@@ -423,33 +547,33 @@
 								id="email"
 								name="email"
 								required
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+								class="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all focus:border-transparent focus:ring-2 focus:ring-amber-500"
 								placeholder={t.contact.form.emailPlaceholder}
 							/>
 						</div>
 					</div>
 
-					<div class="grid md:grid-cols-2 gap-6">
+					<div class="grid gap-6 md:grid-cols-2">
 						<div>
-							<label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+							<label for="phone" class="mb-2 block text-sm font-medium text-gray-700">
 								{t.contact.form.phone}
 							</label>
 							<input
 								type="tel"
 								id="phone"
 								name="phone"
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+								class="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all focus:border-transparent focus:ring-2 focus:ring-amber-500"
 								placeholder={t.contact.form.phonePlaceholder}
 							/>
 						</div>
 						<div>
-							<label for="property" class="block text-sm font-medium text-gray-700 mb-2">
+							<label for="property" class="mb-2 block text-sm font-medium text-gray-700">
 								{t.contact.form.propertyType}
 							</label>
 							<select
 								id="property"
 								name="property_type"
-								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+								class="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all focus:border-transparent focus:ring-2 focus:ring-amber-500"
 							>
 								<option value="">{t.contact.form.propertyOptions.select}</option>
 								<option value="house">{t.contact.form.propertyOptions.house}</option>
@@ -461,25 +585,31 @@
 					</div>
 
 					<div>
-						<label for="service" class="block text-sm font-medium text-gray-700 mb-2">
+						<label for="service" class="mb-2 block text-sm font-medium text-gray-700">
 							{t.contact.form.serviceInterest}
 						</label>
 						<select
 							id="service"
 							name="service_interest"
-							class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+							class="w-full rounded-lg border border-gray-300 px-4 py-3 transition-all focus:border-transparent focus:ring-2 focus:ring-amber-500"
 						>
 							<option value="">{t.contact.form.serviceOptions.select}</option>
-							<option value="glass">{t.contact.form.serviceOptions.glass}</option>
-							<option value="window-frames">{t.contact.form.serviceOptions.windowFrames}</option>
-							<option value="door-frames">{t.contact.form.serviceOptions.doorFrames}</option>
-							<option value="full">{t.contact.form.serviceOptions.full}</option>
+							<option value="wooden-windows">{t.contact.form.serviceOptions.woodenWindows}</option>
+							<option value="wooden-doors">{t.contact.form.serviceOptions.woodenDoors}</option>
+							<option value="interior-joinery"
+								>{t.contact.form.serviceOptions.interiorJoinery}</option
+							>
+							<option value="staircase">{t.contact.form.serviceOptions.staircase}</option>
+							<option value="kitchen">{t.contact.form.serviceOptions.kitchen}</option>
+							<option value="full-renovation">{t.contact.form.serviceOptions.fullRenovation}</option
+							>
+							<option value="pvc-aluminum">{t.contact.form.serviceOptions.pvcAluminum}</option>
 							<option value="assessment">{t.contact.form.serviceOptions.assessment}</option>
 						</select>
 					</div>
 
 					<div>
-						<label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+						<label for="message" class="mb-2 block text-sm font-medium text-gray-700">
 							{t.contact.form.message} *
 						</label>
 						<textarea
@@ -487,34 +617,34 @@
 							name="message"
 							required
 							rows="5"
-							class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all resize-none"
+							class="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 transition-all focus:border-transparent focus:ring-2 focus:ring-amber-500"
 							placeholder={t.contact.form.messagePlaceholder}
 						></textarea>
 					</div>
 
 					<button
 						type="submit"
-						class="w-full bg-teal-600 text-white px-8 py-4 rounded-lg hover:bg-teal-700 transition-all font-semibold flex items-center justify-center group text-lg"
+						class="group flex w-full items-center justify-center rounded-lg bg-amber-700 px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-amber-800"
 					>
 						{t.contact.form.submit}
-						<ArrowRight class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+						<ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
 					</button>
 				</form>
 
-				<div class="mt-12 pt-8 border-t border-gray-200">
-					<div class="grid md:grid-cols-3 gap-6 text-center">
+				<div class="mt-12 border-t border-gray-200 pt-8">
+					<div class="grid gap-6 text-center md:grid-cols-3">
 						<div class="flex flex-col items-center">
-							<Phone class="w-6 h-6 text-teal-600 mb-2" />
+							<Phone class="mb-2 h-6 w-6 text-amber-700" />
 							<div class="text-sm font-medium text-gray-900">{t.contact.info.phone}</div>
-							<div class="text-sm text-gray-600">+1 (555) 123-4567</div>
+							<div class="text-sm text-gray-600">+32 XXX XX XX XX</div>
 						</div>
 						<div class="flex flex-col items-center">
-							<Mail class="w-6 h-6 text-teal-600 mb-2" />
+							<Mail class="mb-2 h-6 w-6 text-amber-700" />
 							<div class="text-sm font-medium text-gray-900">{t.contact.info.email}</div>
-							<div class="text-sm text-gray-600">info@thermalpro.com</div>
+							<div class="text-sm text-gray-600">info@woodcraft-joinery.be</div>
 						</div>
 						<div class="flex flex-col items-center">
-							<MapPin class="w-6 h-6 text-teal-600 mb-2" />
+							<MapPin class="mb-2 h-6 w-6 text-amber-700" />
 							<div class="text-sm font-medium text-gray-900">{t.contact.info.location}</div>
 							<div class="text-sm text-gray-600">{t.contact.info.locationText}</div>
 						</div>
@@ -525,23 +655,35 @@
 	</section>
 
 	<!-- Footer -->
-	<footer class="bg-gray-900 text-white py-12">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<div class="grid md:grid-cols-3 gap-8 mb-8">
+	<footer class="bg-gray-900 py-12 text-white">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-8 grid gap-8 md:grid-cols-3">
 				<div>
-					<div class="flex items-center space-x-2 mb-4">
-						<Thermometer class="w-8 h-8 text-teal-400" />
-						<span class="text-2xl font-bold">ThermalPro</span>
+					<div class="mb-4 flex items-center space-x-2">
+						<svg
+							class="h-8 w-8 text-amber-400"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M12 22v-7l-2-2" />
+							<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
+							<path d="m14 14-2-2" />
+						</svg>
+						<span class="text-2xl font-bold">WoodCraft</span>
 					</div>
 					<p class="text-gray-400">{t.footer.description}</p>
 				</div>
 				<div>
-					<h3 class="font-semibold text-lg mb-4">{t.footer.quickLinks}</h3>
+					<h3 class="mb-4 text-lg font-semibold">{t.footer.quickLinks}</h3>
 					<div class="space-y-2">
 						{#each navItems as item}
 							<button
 								onclick={() => scrollToSection(item.id)}
-								class="block text-gray-400 hover:text-teal-400 transition-colors"
+								class="block text-gray-400 transition-colors hover:text-amber-400"
 							>
 								{item.label}
 							</button>
@@ -549,7 +691,7 @@
 					</div>
 				</div>
 				<div>
-					<h3 class="font-semibold text-lg mb-4">{t.footer.businessHours}</h3>
+					<h3 class="mb-4 text-lg font-semibold">{t.footer.businessHours}</h3>
 					<div class="space-y-2 text-gray-400">
 						<p>{t.footer.schedule.weekdays}</p>
 						<p>{t.footer.schedule.saturday}</p>
@@ -558,7 +700,7 @@
 				</div>
 			</div>
 			<div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-				<p>&copy; {new Date().getFullYear()} ThermalPro. {t.footer.copyright}</p>
+				<p>&copy; {new Date().getFullYear()} WoodCraft Joinery. {t.footer.copyright}</p>
 			</div>
 		</div>
 	</footer>

@@ -13,17 +13,17 @@
 </script>
 
 <div
-	class="group border border-gray-100 bg-white p-8 rounded-xl shadow-lg transition-shadow hover:shadow-xl hover:-translate-y-1 duration-300"
+	class="group rounded-xl border border-gray-100 bg-white p-8 shadow-lg transition-shadow duration-300 hover:-translate-y-1 hover:shadow-xl"
 >
-	<div class="text-teal-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+	<div class="mb-4 text-amber-700 transition-transform duration-300 group-hover:scale-110">
 		{@render icon()}
 	</div>
-	<h3 class="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-	<p class="text-gray-600 mb-4">{description}</p>
+	<h3 class="mb-3 text-xl font-bold text-gray-900">{title}</h3>
+	<p class="mb-4 text-gray-600">{description}</p>
 	<ul class="space-y-2">
 		{#each features as feature}
 			<li class="flex items-center text-sm text-gray-700">
-				<CheckCircle class="w-4 h-4 text-teal-600 mr-2 shrink-0" />
+				<CheckCircle class="mr-2 h-4 w-4 shrink-0 text-amber-600" />
 				{feature}
 			</li>
 		{/each}
