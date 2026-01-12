@@ -207,7 +207,7 @@
 		</button>
 		<div class="relative z-10 mx-auto max-w-7xl px-4 py-20 pt-32 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-12 lg:grid-cols-2">
-				<div class="animate-fade-in space-y-8">
+				<div class="animate-fade-in space-y-6">
 					<div class="flex flex-wrap gap-2">
 						<span class="rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-800">
 							{t.hero.badge}
@@ -216,13 +216,80 @@
 							{t.hero.manufacturerBadge}
 						</span>
 					</div>
-					<h1 class="text-5xl leading-tight font-bold text-gray-900 lg:text-6xl">
+					<h1 class="text-4xl leading-tight font-bold text-gray-900 lg:text-5xl">
 						{t.hero.title}
 						<span class="text-amber-700"> {t.hero.titleHighlight}</span>
 					</h1>
-					<p class="text-xl leading-relaxed text-gray-600">
+					<p class="text-lg leading-relaxed text-gray-600">
 						{t.hero.description}
 					</p>
+					<div class="rounded-2xl bg-green-100/60 p-4">
+						<div class="flex items-start gap-3">
+							<svg
+								class="mt-0.5 h-6 w-6 flex-shrink-0 text-green-600"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<path
+									d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+								/>
+								<path d="M7 12.5l3 3 7-7" />
+							</svg>
+							<div>
+								<p class="text-sm leading-relaxed text-gray-700">
+									{t.hero.subsidyText}
+								</p>
+								<div class="mt-2 flex flex-wrap gap-3">
+									<a
+										href="https://www.rvo.nl/subsidies-financiering/isde"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-flex items-center gap-1 text-sm font-medium text-green-700 underline hover:text-green-800"
+									>
+										{t.hero.subsidyLinkISDE}
+										<svg
+											class="h-4 w-4"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+											<polyline points="15 3 21 3 21 9" />
+											<line x1="10" y1="14" x2="21" y2="3" />
+										</svg>
+									</a>
+									<a
+										href="https://www.rvo.nl/subsidies-financiering/svve"
+										target="_blank"
+										rel="noopener noreferrer"
+										class="inline-flex items-center gap-1 text-sm font-medium text-green-700 underline hover:text-green-800"
+									>
+										{t.hero.subsidyLinkSVVE}
+										<svg
+											class="h-4 w-4"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+											<polyline points="15 3 21 3 21 9" />
+											<line x1="10" y1="14" x2="21" y2="3" />
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="flex flex-col gap-4 sm:flex-row">
 						<button
 							onclick={() => scrollToSection('contact')}
@@ -239,14 +306,14 @@
 						</button>
 					</div>
 				</div>
-				<div class="animate-slide-in relative lg:h-[600px]">
+				<div class="animate-slide-in relative h-[500px] w-full lg:h-[700px] lg:w-[400px]">
 					<div
 						class="absolute inset-0 rotate-3 transform rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 opacity-20"
 					></div>
 					<img
-						src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
-						alt="Beautiful wooden window craftsmanship"
-						class="relative h-full w-full rounded-3xl object-cover shadow-2xl"
+						src="{base}/projects/front-door-and-windows/Photo4.jpeg"
+						alt="Carpenter installing wooden window with tools"
+						class="relative h-full w-full rounded-3xl object-cover object-center shadow-2xl"
 					/>
 				</div>
 			</div>
@@ -272,6 +339,29 @@
 			</div>
 
 			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+				<ServiceCard
+					title={t.services.subsidyEligible.title}
+					description={t.services.subsidyEligible.description}
+					features={t.services.subsidyEligible.features}
+					isPrimary={true}
+				>
+					{#snippet icon()}
+						<svg
+							class="h-12 w-12"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+							<path d="M8 12l2 2 4-4" />
+							<path d="M12 6v2" />
+							<path d="M12 16v2" />
+						</svg>
+					{/snippet}
+				</ServiceCard>
 				<ServiceCard
 					title={t.services.woodenJoinery.title}
 					description={t.services.woodenJoinery.description}
@@ -345,6 +435,32 @@
 				>
 					{#snippet icon()}
 						<Shield class="h-12 w-12" />
+					{/snippet}
+				</ServiceCard>
+				<ServiceCard
+					title={t.services.flooring.title}
+					description={t.services.flooring.description}
+					features={t.services.flooring.features}
+				>
+					{#snippet icon()}
+						<svg
+							class="h-12 w-12"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<rect x="2" y="6" width="20" height="12" rx="1" />
+							<line x1="2" y1="10" x2="22" y2="10" />
+							<line x1="2" y1="14" x2="22" y2="14" />
+							<line x1="6" y1="6" x2="6" y2="10" />
+							<line x1="12" y1="10" x2="12" y2="14" />
+							<line x1="18" y1="6" x2="18" y2="10" />
+							<line x1="6" y1="14" x2="6" y2="18" />
+							<line x1="18" y1="14" x2="18" y2="18" />
+						</svg>
 					{/snippet}
 				</ServiceCard>
 			</div>
@@ -455,22 +571,21 @@
 				<h2 class="mb-4 text-4xl font-bold text-gray-900">
 					{t.cases.title}
 				</h2>
-				<p class="mx-auto max-w-3xl text-xl text-gray-600">
-					{t.cases.subtitle}
-				</p>
 			</div>
 
-			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+			<div class="grid items-start gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<CaseStudy
 					images={[
-						`${base}/projects/staircase/Photo1.jpeg`,
-						`${base}/projects/staircase/Photo2.jpeg`,
-						`${base}/projects/staircase/Photo3.jpeg`,
-						`${base}/projects/staircase/Photo4.jpeg`
+						`${base}/projects/front-door-and-windows/Photo1.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo2.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo3.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo4.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo5.jpeg`,
+						`${base}/projects/front-door-and-windows/Photo6.jpeg`
 					]}
-					title={t.cases.project1.title}
-					description={t.cases.project1.description}
-					results={t.cases.project1.results}
+					title={t.cases.project3.title}
+					description={t.cases.project3.description}
+					results={t.cases.project3.results}
 				/>
 				<CaseStudy
 					images={[
@@ -486,16 +601,17 @@
 				/>
 				<CaseStudy
 					images={[
-						`${base}/projects/front-door-and-windows/Photo1.jpeg`,
-						`${base}/projects/front-door-and-windows/Photo2.jpeg`,
-						`${base}/projects/front-door-and-windows/Photo3.jpeg`,
-						`${base}/projects/front-door-and-windows/Photo4.jpeg`,
-						`${base}/projects/front-door-and-windows/Photo5.jpeg`,
-						`${base}/projects/front-door-and-windows/Photo6.jpeg`
+						`${base}/projects/staircase/Photo1.jpeg`,
+						`${base}/projects/staircase/Photo2.jpeg`,
+						`${base}/projects/staircase/Photo3.jpeg`,
+						`${base}/projects/staircase/Photo4.jpeg`,
+						`${base}/projects/staircase/Photo5.jpeg`,
+						`${base}/projects/staircase/Photo6.jpeg`,
+						`${base}/projects/staircase/Photo7.jpeg`
 					]}
-					title={t.cases.project3.title}
-					description={t.cases.project3.description}
-					results={t.cases.project3.results}
+					title={t.cases.project1.title}
+					description={t.cases.project1.description}
+					results={t.cases.project1.results}
 				/>
 			</div>
 		</div>

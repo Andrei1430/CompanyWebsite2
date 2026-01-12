@@ -20,6 +20,9 @@ export interface Translation {
 		title: string;
 		titleHighlight: string;
 		description: string;
+		subsidyText: string;
+		subsidyLinkISDE: string;
+		subsidyLinkSVVE: string;
 		ctaPrimary: string;
 		ctaSecondary: string;
 		stats: {
@@ -49,6 +52,16 @@ export interface Translation {
 			features: string[];
 		};
 		pvcAluminum: {
+			title: string;
+			description: string;
+			features: string[];
+		};
+		subsidyEligible: {
+			title: string;
+			description: string;
+			features: string[];
+		};
+		flooring: {
 			title: string;
 			description: string;
 			features: string[];
@@ -174,7 +187,11 @@ export const translations: Record<Language, Translation> = {
 			title: 'Premium Wooden Joinery &',
 			titleHighlight: 'Thermal Efficiency',
 			description:
-				'Expert craftsmen manufacturing custom wooden windows, doors, and interior joinery with thermal spacer glass. Also available in PVC and aluminum. Direct from our workshop to your home – quality guaranteed.',
+				'Expert craftsmen manufacturing custom wooden windows, doors, and interior joinery with thermal spacer glass. Also available in PVC and aluminum.',
+			subsidyText:
+				'Our products meet the requirements for Dutch government energy subsidies! Ask us about ISDE (homeowners) and SVVE (VvE associations) eligible window and door options.',
+			subsidyLinkISDE: 'ISDE Program',
+			subsidyLinkSVVE: 'SVVE Program',
 			ctaPrimary: 'Request Free Quote',
 			ctaSecondary: 'View Our Services',
 			stats: {
@@ -214,7 +231,8 @@ export const translations: Record<Language, Translation> = {
 					'Wood repairs & replacements',
 					'Thermal glass spacers',
 					'Window restoration',
-					'Door refurbishment'
+					'Door refurbishment',
+					'Full interior renovation (tiles, painting, repairs)'
 				]
 			},
 			pvcAluminum: {
@@ -226,6 +244,29 @@ export const translations: Record<Language, Translation> = {
 					'Thermal break profiles',
 					'Modern aesthetics',
 					'Color options'
+				]
+			},
+			subsidyEligible: {
+				title: 'Subsidy-Eligible Products',
+				description:
+					'Maximize your savings with our ISDE & SVVE eligible products. We install energy-efficient windows and doors that meet Dutch government subsidy requirements, helping you reduce costs while improving your home.',
+				features: [
+					'HR++ glass (U ≤ 1.2 W/m²K)',
+					'Triple glass (U ≤ 0.7 W/m²K)',
+					'Insulating doors (Ud ≤ 1.0-1.5)',
+					'Thermal break frames',
+					'Approved meldcode products'
+				]
+			},
+			flooring: {
+				title: 'Wood & Parquet Flooring',
+				description:
+					'Professional installation of premium wood and parquet flooring. From classic herringbone patterns to modern wide planks, we deliver beautiful, durable floors crafted with precision.',
+				features: [
+					'Solid wood flooring',
+					'Parquet patterns',
+					'Engineered wood',
+					'Sanding & refinishing'
 				]
 			}
 		},
@@ -258,15 +299,10 @@ export const translations: Record<Language, Translation> = {
 			title: 'Our Recent Projects',
 			subtitle: 'Quality craftsmanship across Belgium and beyond',
 			project1: {
-				title: 'Wooden Staircase',
+				title: 'Staircases & Furniture',
 				description:
-					'Custom-crafted solid wood staircase with elegant balustrades and hand-finished details. A stunning centerpiece that combines traditional joinery with modern design aesthetics.',
-				results: [
-					'Solid hardwood construction',
-					'Custom balustrade design',
-					'Hand-finished to perfection',
-					'Built to last generations'
-				]
+					'Bespoke wooden staircases and custom furniture crafted with precision. From grand statement staircases to elegant wardrobes and cabinets, each piece showcases traditional joinery techniques combined with contemporary design.',
+				results: ['Custom staircase design', 'Built-in wardrobes & cabinets', 'Made to measure']
 			},
 			project2: {
 				title: 'Apartment Renovation',
@@ -363,7 +399,11 @@ export const translations: Record<Language, Translation> = {
 			title: 'Premium Houten Schrijnwerk &',
 			titleHighlight: 'Thermische Efficiëntie',
 			description:
-				'Vakbekwame ambachtslieden die op maat gemaakte houten ramen, deuren en interieur schrijnwerk vervaardigen met thermisch isolerend glas. Ook verkrijgbaar in PVC en aluminium. Direct van onze werkplaats naar uw woning – kwaliteit gegarandeerd.',
+				'Vakbekwame ambachtslieden die op maat gemaakte houten ramen, deuren en interieur schrijnwerk vervaardigen met thermisch isolerend glas. Ook verkrijgbaar in PVC en aluminium.',
+			subsidyText:
+				'Onze producten voldoen aan de eisen voor overheidssubsidies! Vraag ons naar ISDE (woningeigenaren) en SVVE (VvE) geschikte raam- en deuropties.',
+			subsidyLinkISDE: 'ISDE Regeling',
+			subsidyLinkSVVE: 'SVVE Regeling',
 			ctaPrimary: 'Gratis Offerte Aanvragen',
 			ctaSecondary: 'Bekijk Onze Diensten',
 			stats: {
@@ -403,7 +443,8 @@ export const translations: Record<Language, Translation> = {
 					'Houtreparaties & vervangingen',
 					'Thermische glasspacers',
 					'Raamrestauratie',
-					'Deuropknapbeurt'
+					'Deuropknapbeurt',
+					'Volledige interieurrenovatie (tegels, schilderwerk, reparaties)'
 				]
 			},
 			pvcAluminum: {
@@ -416,6 +457,24 @@ export const translations: Record<Language, Translation> = {
 					'Moderne esthetiek',
 					'Kleuropties'
 				]
+			},
+			subsidyEligible: {
+				title: 'Subsidie-Geschikte Producten',
+				description:
+					'Maximaliseer uw besparing met onze ISDE & SVVE geschikte producten. Wij installeren energiezuinige ramen en deuren die voldoen aan de eisen voor overheidssubsidies, zodat u kosten bespaart én uw woning verbetert.',
+				features: [
+					'HR++ glas (U ≤ 1,2 W/m²K)',
+					'Triple glas (U ≤ 0,7 W/m²K)',
+					'Isolerende deuren (Ud ≤ 1,0-1,5)',
+					'Thermisch onderbroken kozijnen',
+					'Goedgekeurde meldcode producten'
+				]
+			},
+			flooring: {
+				title: 'Houten & Parketvloeren',
+				description:
+					'Professionele installatie van premium houten en parketvloeren. Van klassieke visgraatpatronen tot moderne brede planken, wij leveren prachtige, duurzame vloeren met precisie gelegd.',
+				features: ['Massief houten vloeren', 'Parketpatronen', 'Multiplank', 'Schuren & renoveren']
 			}
 		},
 		advantages: {
@@ -447,15 +506,10 @@ export const translations: Record<Language, Translation> = {
 			title: 'Onze Recente Projecten',
 			subtitle: 'Kwaliteitsambacht door heel België en daarbuiten',
 			project1: {
-				title: 'Houten Trap',
+				title: 'Trappen & Meubilair',
 				description:
-					'Op maat gemaakte massief houten trap met elegante balustraden en met de hand afgewerkte details. Een prachtig middelpunt dat traditioneel vakmanschap combineert met moderne designesthetiek.',
-				results: [
-					'Massief hardhouten constructie',
-					'Op maat ontworpen balustrade',
-					'Met de hand afgewerkt',
-					'Gebouwd voor generaties'
-				]
+					'Op maat gemaakte houten trappen en custom meubilair met precisie vervaardigd. Van imposante trappen tot elegante kasten en inbouwmeubelen, elk stuk toont traditioneel vakmanschap gecombineerd met hedendaags design.',
+				results: ['Op maat ontworpen trappen', 'Inbouwkasten & kasten', 'Op maat gemaakt']
 			},
 			project2: {
 				title: 'Appartement Renovatie',
