@@ -306,13 +306,13 @@
 						</button>
 					</div>
 				</div>
-				<div class="animate-slide-in relative h-[500px] w-full lg:h-[700px] lg:w-[400px]">
+				<div class="animate-slide-in relative h-[500px] w-[500px] lg:h-[600px] lg:w-[600px]">
 					<div
 						class="absolute inset-0 rotate-3 transform rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 opacity-20"
 					></div>
 					<img
-						src="{base}/projects/front-door-and-windows/Photo4.jpeg"
-						alt="Carpenter installing wooden window with tools"
+						src="{base}/Cover.jfif"
+						alt="WoodCraft Joinery Cover Photo"
 						class="relative h-full w-full rounded-3xl object-cover object-center shadow-2xl"
 					/>
 				</div>
