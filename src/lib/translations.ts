@@ -212,9 +212,9 @@ export const translations: Record<Language, Translation> = {
 					'Premium wooden windows and doors with thermal spacer glass for superior insulation. Custom-crafted in our workshop with traditional joinery techniques and modern thermal technology.',
 				features: [
 					'Thermal spacer glass',
-					'Oak, pine & hardwoods',
+					'Nordic pine, spruce & oak',
 					'Custom designs',
-					'25-year warranty'
+					'10-year warranty'
 				]
 			},
 			interiorJoinery: {
@@ -271,7 +271,7 @@ export const translations: Record<Language, Translation> = {
 			}
 		},
 		advantages: {
-			title: 'Why Choose WoodCraft Joinery',
+			title: 'Why Choose Us',
 			subtitle: 'Direct manufacturer with decades of craftsmanship experience',
 			manufacturer: {
 				title: 'Direct Manufacturer',
@@ -424,9 +424,9 @@ export const translations: Record<Language, Translation> = {
 					'Premium houten ramen en deuren met thermisch isolerend glas voor superieure isolatie. Op maat gemaakt in onze werkplaats met traditionele schrijnwerktechnieken en moderne thermische technologie.',
 				features: [
 					'Thermisch isolerend glas',
-					'Eik, grenen & hardhout',
+					'Noorse den, spar & eik',
 					'Op maat ontwerp',
-					'25 jaar garantie'
+					'10 jaar garantie'
 				]
 			},
 			interiorJoinery: {
@@ -478,7 +478,7 @@ export const translations: Record<Language, Translation> = {
 			}
 		},
 		advantages: {
-			title: 'Waarom Kiezen voor WoodCraft Schrijnwerkerij',
+			title: 'Waarom Ons Kiezen',
 			subtitle: 'Directe fabrikant met tientallen jaren vakmanschap ervaring',
 			manufacturer: {
 				title: 'Directe Fabrikant',

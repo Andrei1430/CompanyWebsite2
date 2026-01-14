@@ -79,7 +79,7 @@
 </script>
 
 <svelte:head>
-	<title>WoodCraft Joinery - Premium Wooden Windows, Doors & Renovations</title>
+	<title>Premium Wooden Windows, Doors & Renovations</title>
 	<meta
 		name="description"
 		content="Expert craftsmen manufacturing custom wooden windows, doors, staircases, and kitchen furniture with thermal spacer glass. Direct manufacturer in Belgium. 10% discount until March 1st!"
@@ -109,7 +109,7 @@
 						<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
 						<path d="m14 14-2-2" />
 					</svg>
-					<span class="text-2xl font-bold text-gray-900">WoodCraft</span>
+					<span class="sr-only">WoodCraft Joinery</span>
 				</div>
 
 				<div class="hidden items-center space-x-8 md:flex">
@@ -785,7 +785,7 @@
 							<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
 							<path d="m14 14-2-2" />
 						</svg>
-						<span class="text-2xl font-bold">WoodCraft</span>
+						<span class="sr-only">WoodCraft Joinery</span>
 					</div>
 					<p class="text-lg text-gray-400">{t.footer.description}</p>
 				</div>
