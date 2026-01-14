@@ -55,7 +55,20 @@
 		};
 
 		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
+
+		const handlePageShow = () => {
+			if (sessionStorage.getItem('web3forms_submitted') === '1') {
+				sessionStorage.removeItem('web3forms_submitted');
+				location.reload();
+			}
+		};
+
+		window.addEventListener('pageshow', handlePageShow);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('pageshow', handlePageShow);
+		};
 	});
 
 	function scrollToSection(sectionId: string) {
@@ -306,15 +319,17 @@
 						</button>
 					</div>
 				</div>
-				<div class="animate-slide-in relative h-[500px] w-[500px] lg:h-[600px] lg:w-[600px]">
+				<div class="animate-slide-in relative w-full max-w-[500px] lg:max-w-[600px]">
 					<div
 						class="absolute inset-0 rotate-3 transform rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 opacity-20"
 					></div>
-					<img
-						src="{base}/Cover.jfif"
-						alt="WoodCraft Joinery Cover Photo"
-						class="relative h-full w-full rounded-3xl object-cover object-center shadow-2xl"
-					/>
+					<div class="relative aspect-[4/3] w-full lg:aspect-[16/10]">
+						<img
+							src="{base}/Cover.jfif"
+							alt="WoodCraft Joinery Cover Photo"
+							class="absolute inset-0 h-full w-full rounded-3xl object-cover object-center shadow-2xl"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -637,11 +652,15 @@
 			</div>
 
 			<div class="rounded-2xl bg-white p-8 shadow-xl lg:p-12">
-				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+				<form
+					action="https://api.web3forms.com/submit"
+					method="POST"
+					class="space-y-6"
+					onsubmit={() => sessionStorage.setItem('web3forms_submitted', '1')}
+				>
 					<input type="hidden" name="access_key" value="321a5c5d-60f4-474d-8566-2a55ff1c1233" />
 					<input type="hidden" name="subject" value="New Joinery Inquiry - WoodCraft" />
 					<input type="hidden" name="from_name" value="WoodCraft Joinery Website" />
-
 					<div class="grid gap-6 md:grid-cols-2">
 						<div>
 							<label for="name" class="mb-2 block text-sm font-medium text-gray-700">
