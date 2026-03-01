@@ -31,6 +31,7 @@
 		{ id: 'home', label: t.nav.home },
 		{ id: 'services', label: t.nav.services },
 		{ id: 'advantages', label: t.nav.advantages },
+		{ id: 'hardware', label: t.nav.hardware },
 		{ id: 'cases', label: t.nav.cases },
 		{ id: 'contact', label: t.nav.contact }
 	]);
@@ -39,7 +40,7 @@
 		const handleScroll = () => {
 			isScrolled = window.scrollY > 50;
 
-			const sections = ['home', 'services', 'advantages', 'cases', 'contact'];
+			const sections = ['home', 'services', 'advantages', 'hardware', 'cases', 'contact'];
 			const currentSection = sections.find((section) => {
 				const element = document.getElementById(section);
 				if (element) {
@@ -92,10 +93,10 @@
 </script>
 
 <svelte:head>
-	<title>Premium Wooden Windows, Doors & Renovations</title>
+	<title>Tony Groupe | Premium Wooden Windows, Doors & Security Hardware</title>
 	<meta
 		name="description"
-		content="Expert craftsmen manufacturing custom wooden windows, doors, staircases, and kitchen furniture with thermal spacer glass. Direct manufacturer in Belgium. 10% discount until March 1st!"
+		content="Tony Groupe SPRL — expert craftsmen manufacturing custom wooden windows, doors, staircases, and interior joinery with SKG3 certified security hardware. Direct manufacturer in Brussels, Belgium. 10% discount until June 1st!"
 	/>
 </svelte:head>
 
@@ -122,7 +123,7 @@
 						<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
 						<path d="m14 14-2-2" />
 					</svg>
-					<span class="sr-only">WoodCraft Joinery</span>
+					<span class="text-lg font-bold text-amber-700">Tony Groupe</span>
 				</div>
 
 				<div class="hidden items-center space-x-8 md:flex">
@@ -326,7 +327,7 @@
 					<div class="relative aspect-[4/3] w-full lg:aspect-[16/10]">
 						<img
 							src="{base}/Cover.jfif"
-							alt="WoodCraft Joinery Cover Photo"
+							alt="Tony Groupe - Premium Wooden Joinery & Security Hardware"
 							class="absolute inset-0 h-full w-full rounded-3xl object-cover object-center shadow-2xl"
 						/>
 					</div>
@@ -579,8 +580,110 @@
 		</div>
 	</section>
 
+	<!-- Hardware & Security Section -->
+	<section id="hardware" class="bg-white py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-16 text-center">
+				<h2 class="mb-4 text-4xl font-bold text-gray-900">
+					{t.hardware.title}
+				</h2>
+				<p class="mx-auto max-w-3xl text-xl text-gray-600">
+					{t.hardware.subtitle}
+				</p>
+			</div>
+
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				<!-- Security Disc Hinges -->
+				<div class="group rounded-2xl border-2 border-amber-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
+					<div class="mb-6 flex items-center gap-4">
+						<div class="rounded-xl bg-amber-100 p-3">
+							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="12" cy="12" r="3" />
+								<path d="M12 1v4" /><path d="M12 19v4" />
+								<path d="M4.22 4.22l2.83 2.83" /><path d="M16.95 16.95l2.83 2.83" />
+								<path d="M1 12h4" /><path d="M19 12h4" />
+								<path d="M4.22 19.78l2.83-2.83" /><path d="M16.95 7.05l2.83-2.83" />
+							</svg>
+						</div>
+						<div>
+							<h3 class="text-xl font-bold text-gray-900">{t.hardware.hinges.title}</h3>
+							<div class="mt-1 flex flex-wrap gap-1.5">
+								<span class="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800">SKG3</span>
+								<span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-800">Police Safe Living</span>
+							</div>
+						</div>
+					</div>
+					<p class="mb-6 text-sm leading-relaxed text-gray-600">{t.hardware.hinges.description}</p>
+					<ul class="space-y-2">
+						{#each t.hardware.hinges.features as feature}
+							<li class="flex items-start gap-2 text-sm text-gray-700">
+								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+								{feature}
+							</li>
+						{/each}
+					</ul>
+				</div>
+
+				<!-- Roto Entry Door Hardware -->
+				<div class="group rounded-2xl border-2 border-amber-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
+					<div class="mb-6 flex items-center gap-4">
+						<div class="rounded-xl bg-amber-100 p-3">
+							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+								<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+								<circle cx="12" cy="16" r="1" />
+							</svg>
+						</div>
+						<div>
+							<h3 class="text-xl font-bold text-gray-900">{t.hardware.rotoHardware.title}</h3>
+							<div class="mt-1 flex flex-wrap gap-1.5">
+								<span class="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-800">RC 2 / RC 3</span>
+								<span class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800">VdS</span>
+								<span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-800">10 yr warranty</span>
+							</div>
+						</div>
+					</div>
+					<p class="mb-6 text-sm leading-relaxed text-gray-600">{t.hardware.rotoHardware.description}</p>
+					<ul class="space-y-2">
+						{#each t.hardware.rotoHardware.features as feature}
+							<li class="flex items-start gap-2 text-sm text-gray-700">
+								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+								{feature}
+							</li>
+						{/each}
+					</ul>
+				</div>
+
+				<!-- Protective Door Strip -->
+				<div class="group rounded-2xl border-2 border-amber-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
+					<div class="mb-6 flex items-center gap-4">
+						<div class="rounded-xl bg-amber-100 p-3">
+							<Shield class="h-8 w-8 text-amber-700" />
+						</div>
+						<div>
+							<h3 class="text-xl font-bold text-gray-900">{t.hardware.doorStrip.title}</h3>
+							<div class="mt-1 flex flex-wrap gap-1.5">
+								<span class="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800">SKG</span>
+								<span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-800">5 yr warranty</span>
+							</div>
+						</div>
+					</div>
+					<p class="mb-6 text-sm leading-relaxed text-gray-600">{t.hardware.doorStrip.description}</p>
+					<ul class="space-y-2">
+						{#each t.hardware.doorStrip.features as feature}
+							<li class="flex items-start gap-2 text-sm text-gray-700">
+								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+								{feature}
+							</li>
+						{/each}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Cases Section -->
-	<section id="cases" class="bg-white py-20">
+	<section id="cases" class="bg-gray-50 py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-16 text-center">
 				<h2 class="mb-4 text-4xl font-bold text-gray-900">
@@ -659,8 +762,8 @@
 					onsubmit={() => sessionStorage.setItem('web3forms_submitted', '1')}
 				>
 					<input type="hidden" name="access_key" value="321a5c5d-60f4-474d-8566-2a55ff1c1233" />
-					<input type="hidden" name="subject" value="New Joinery Inquiry - WoodCraft" />
-					<input type="hidden" name="from_name" value="WoodCraft Joinery Website" />
+					<input type="hidden" name="subject" value="New Joinery Inquiry - Tony Groupe" />
+					<input type="hidden" name="from_name" value="Tony Groupe Website" />
 					<div class="grid gap-6 md:grid-cols-2">
 						<div>
 							<label for="name" class="mb-2 block text-sm font-medium text-gray-700">
@@ -804,13 +907,17 @@
 							<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
 							<path d="m14 14-2-2" />
 						</svg>
-						<span class="sr-only">WoodCraft Joinery</span>
+						<span class="text-lg font-bold text-amber-400">Tony Groupe</span>
 					</div>
 					<p class="text-lg text-gray-400">{t.footer.description}</p>
+					<div class="mt-4 flex items-start gap-2 text-sm text-gray-500">
+						<MapPin class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" />
+						<span>{t.footer.address}</span>
+					</div>
 				</div>
 			</div>
 			<div class="mt-12 border-t border-gray-800 pt-8 text-center text-gray-400">
-				<p>&copy; {new Date().getFullYear()} WoodCraft Joinery. {t.footer.copyright}</p>
+				<p>&copy; {new Date().getFullYear()} TONY GROUPE SPRL. {t.footer.copyright}</p>
 			</div>
 		</div>
 	</footer>

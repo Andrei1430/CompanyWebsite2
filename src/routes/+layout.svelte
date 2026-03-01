@@ -66,7 +66,32 @@
 			'@context': 'https://schema.org',
 			'@type': 'HomeAndConstructionBusiness',
 			name: seo.siteName,
-			url: siteUrl
+			legalName: (seo as any).companyName,
+			url: siteUrl,
+			image: siteUrl + defaultImage,
+			description: defaultDescription,
+			address: {
+				'@type': 'PostalAddress',
+				streetAddress: (seo as any).address?.street,
+				postalCode: (seo as any).address?.postalCode,
+				addressLocality: (seo as any).address?.city,
+				addressCountry: (seo as any).address?.country
+			},
+			areaServed: [
+				{ '@type': 'Country', name: 'Belgium' },
+				{ '@type': 'Country', name: 'Netherlands' }
+			],
+			knowsAbout: [
+				'Wooden windows',
+				'Wooden doors',
+				'Interior joinery',
+				'Security hardware',
+				'SKG3 certified hinges',
+				'Roto entry door hardware',
+				'Thermal insulation glass',
+				'PVC and aluminum joinery',
+				'Home renovation'
+			]
 		})}
 	</script>
 </svelte:head>

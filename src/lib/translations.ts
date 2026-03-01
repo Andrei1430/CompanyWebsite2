@@ -3,6 +3,7 @@ export interface Translation {
 		home: string;
 		services: string;
 		advantages: string;
+		hardware: string;
 		cases: string;
 		contact: string;
 		getQuote: string;
@@ -88,6 +89,25 @@ export interface Translation {
 		};
 		uValue: string;
 	};
+	hardware: {
+		title: string;
+		subtitle: string;
+		hinges: {
+			title: string;
+			description: string;
+			features: string[];
+		};
+		rotoHardware: {
+			title: string;
+			description: string;
+			features: string[];
+		};
+		doorStrip: {
+			title: string;
+			description: string;
+			features: string[];
+		};
+	};
 	cases: {
 		title: string;
 		subtitle: string;
@@ -158,6 +178,7 @@ export interface Translation {
 			saturday: string;
 			sunday: string;
 		};
+		address: string;
 		copyright: string;
 	};
 }
@@ -170,15 +191,16 @@ export const translations: Record<Language, Translation> = {
 			home: 'Home',
 			services: 'Services',
 			advantages: 'Why Choose Us',
+			hardware: 'Hardware & Security',
 			cases: 'Our Work',
 			contact: 'Contact',
 			getQuote: 'Get Quote'
 		},
 		promo: {
 			badge: '🎉 Limited Time Offer',
-			mainDiscount: '10% OFF all orders until March 1st!',
+			mainDiscount: '10% OFF all orders until June 1st!',
 			referralDiscount: '+10% extra when your referral places an order',
-			validUntil: 'Valid until March 1st, 2026',
+			validUntil: 'Valid until June 1st, 2026',
 			totalSavings: 'Save over 20% when your referrals become customers!'
 		},
 		hero: {
@@ -295,6 +317,46 @@ export const translations: Record<Language, Translation> = {
 			},
 			uValue: 'Thermal Performance'
 		},
+		hardware: {
+			title: 'Hardware & Security',
+			subtitle: 'Premium ironmongery and certified security hardware for maximum protection and durability',
+			hinges: {
+				title: 'Security Disc Hinges',
+				description: 'Steel security disc hinges with smooth, anti-burglary operation and extra-large load capacity with rounded corners. Suitable for exterior windows and doors. Features a built-in anti-theft device, wear-resistant and self-lubricating design — eliminating black paint stains for good. Equipped with special beveled, self-locating bearings that cannot fall out thanks to the fixing collar. Star-shaped screw holes reduce the risk of screw breakage.',
+				features: [
+					'Police Safe Living quality mark',
+					'SKG3 certified',
+					'Built-in anti-theft device',
+					'Self-lubricating & wear-resistant',
+					'Extra-large load capacity',
+					'Rounded corners for safety'
+				]
+			},
+			rotoHardware: {
+				title: 'Roto Entry Door Hardware',
+				description: 'Top-quality Roto hardware for entry doors, offering the highest level of security and convenience. Automatic locking without using a key, with an optional electronic actuator for fully automatic operation.',
+				features: [
+					'Automatic locking without a key',
+					'Day-opening function for easy keyless access',
+					'Optional electronic actuator for automatic opening',
+					'Three automatic safety locking points (RC 2 / RC 3)',
+					'Auto-triggering deadbolt in main lock',
+					'VdS tested anti-burglary protection',
+					'Auto hook & bolt provide counter-pressure without key',
+					'10-year operational warranty'
+				]
+			},
+			doorStrip: {
+				title: 'Protective Door Strip',
+				description: 'Protective strip for exterior doors providing preventive security measures. Delivers a very strong delay effect in case of a burglary attempt, giving you valuable extra time.',
+				features: [
+					'Strong delay effect against break-in attempts',
+					'Tested and SKG certified',
+					'5-year warranty',
+					'Suitable for all exterior doors'
+				]
+			}
+		},
 		cases: {
 			title: 'Our Recent Projects',
 			subtitle: 'Quality craftsmanship across Belgium and beyond',
@@ -367,13 +429,20 @@ export const translations: Record<Language, Translation> = {
 				phone: 'Phone',
 				email: 'Email',
 				location: 'Location',
-				locationText: 'Netherlands'
+				locationText: 'Brussels, Belgium'
 			}
 		},
 		footer: {
 			description:
-				'Master craftsmen with more than 25 years of experience in woodworking. Specializing in premium wooden windows, doors, staircases, kitchens, and complete renovations. Direct manufacturer – quality guaranteed.',
+				'Master craftsmen with more than 25 years of experience in woodworking. Specializing in premium wooden windows, doors, staircases, kitchens, and complete renovations with certified security hardware. Direct manufacturer – quality guaranteed.',
 			quickLinks: 'Quick Links',
+			businessHours: 'Business Hours',
+			schedule: {
+				weekdays: 'Mon-Fri: 8:00 - 18:00',
+				saturday: 'Sat: 9:00 - 14:00',
+				sunday: 'Sun: Closed'
+			},
+			address: 'Rue Potaerdenberg 354, B-1080 Bruxelles',
 			copyright: 'All rights reserved.'
 		}
 	},
@@ -382,15 +451,16 @@ export const translations: Record<Language, Translation> = {
 			home: 'Home',
 			services: 'Diensten',
 			advantages: 'Waarom Wij',
+			hardware: 'Hang- & Sluitwerk',
 			cases: 'Ons Werk',
 			contact: 'Contact',
 			getQuote: 'Offerte Aanvragen'
 		},
 		promo: {
 			badge: '🎉 Tijdelijke Aanbieding',
-			mainDiscount: '10% KORTING op alle bestellingen tot 1 maart!',
+			mainDiscount: '10% KORTING op alle bestellingen tot 1 juni!',
 			referralDiscount: '+10% extra wanneer uw doorverwijzing een bestelling plaatst',
-			validUntil: 'Geldig tot 1 maart 2026',
+			validUntil: 'Geldig tot 1 juni 2026',
 			totalSavings: 'Bespaar meer dan 20% wanneer uw doorverwijzingen klant worden!'
 		},
 		hero: {
@@ -502,6 +572,46 @@ export const translations: Record<Language, Translation> = {
 			},
 			uValue: 'Thermische Prestatie'
 		},
+		hardware: {
+			title: 'Hang- & Sluitwerk',
+			subtitle: 'Premium beslag en gecertificeerd veiligheidsbeslag voor maximale bescherming en duurzaamheid',
+			hinges: {
+				title: 'Veiligheidsschijfscharnieren',
+				description: 'Stalen veiligheidsschijfscharnieren met soepele, inbraakwerende werking en extra grote draagcapaciteit met afgeronde hoeken. Geschikt voor buitenramen en -deuren. Voorzien van een ingebouwd anti-diefstalmechanisme, slijtvast en zelfsmerende werking — waardoor zwarte verfvlekken verleden tijd zijn. Uitgerust met speciale afgeschuinde, zelfzoekende lagers die dankzij de borgkraag niet uit het scharnier kunnen vallen. Stervormige schroefgaten verminderen het risico op schroefbreuk.',
+				features: [
+					'Politiekeurmerk Veilig Wonen',
+					'SKG3 gecertificeerd',
+					'Ingebouwd anti-diefstalmechanisme',
+					'Zelfsmerend & slijtvast',
+					'Extra grote draagcapaciteit',
+					'Afgeronde hoeken voor veiligheid'
+				]
+			},
+			rotoHardware: {
+				title: 'Roto Voordeurbeslag',
+				description: 'Hoogwaardig Roto beslag voor voordeuren, met het hoogste niveau van veiligheid en comfort. Automatische vergrendeling zonder sleutel, met optionele elektronische aandrijving voor volledig automatische bediening.',
+				features: [
+					'Automatische vergrendeling zonder sleutel',
+					'Dagopening-functie voor eenvoudige toegang zonder sleutel',
+					'Optionele elektronische aandrijving voor automatisch openen',
+					'Drie automatische veiligheidsvergrendelpunten (RC 2 / RC 3)',
+					'Automatisch uitschietende dagschoot in het hoofdslot',
+					'VdS geteste inbraakbeveiliging',
+					'Automatische haak & schoot zorgen voor tegendruk zonder sleutel',
+					'10 jaar fabrieksgarantie'
+				]
+			},
+			doorStrip: {
+				title: 'Beschermstrip voor Buitendeuren',
+				description: 'Beschermingsstrip voor buitendeuren als preventieve beveiligingsmaatregel. Levert een zeer sterk vertragend effect bij een inbraakpoging, waardoor u waardevolle extra tijd wint.',
+				features: [
+					'Sterk vertragend effect tegen inbraakpogingen',
+					'Getest en SKG gecertificeerd',
+					'5 jaar garantie',
+					'Geschikt voor alle buitendeuren'
+				]
+			}
+		},
 		cases: {
 			title: 'Onze Recente Projecten',
 			subtitle: 'Kwaliteitsambacht door heel België en daarbuiten',
@@ -574,13 +684,20 @@ export const translations: Record<Language, Translation> = {
 				phone: 'Telefoon',
 				email: 'E-mail',
 				location: 'Locatie',
-				locationText: 'Nederland'
+				locationText: 'Brussel, België'
 			}
 		},
 		footer: {
 			description:
-				'Meester-ambachtslieden met meer dan 25 jaar ervaring in houtbewerking. Gespecialiseerd in premium houten ramen, deuren, trappen, keukens en complete renovaties. Directe fabrikant – kwaliteit gegarandeerd.',
+				'Meester-ambachtslieden met meer dan 25 jaar ervaring in houtbewerking. Gespecialiseerd in premium houten ramen, deuren, trappen, keukens en complete renovaties met gecertificeerd veiligheidsbeslag. Directe fabrikant – kwaliteit gegarandeerd.',
 			quickLinks: 'Snelle Links',
+			businessHours: 'Openingstijden',
+			schedule: {
+				weekdays: 'Ma-Vr: 8:00 - 18:00',
+				saturday: 'Za: 9:00 - 14:00',
+				sunday: 'Zo: Gesloten'
+			},
+			address: 'Rue Potaerdenberg 354, B-1080 Bruxelles',
 			copyright: 'Alle rechten voorbehouden.'
 		}
 	}

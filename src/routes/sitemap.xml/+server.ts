@@ -1,7 +1,7 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { seo } from '$lib/seo';
 
-const pages = ['/', '/#services', '/#advantages', '/#cases', '/#contact'];
+const pages = ['/', '/#services', '/#advantages', '/#hardware', '/#cases', '/#contact'];
 
 const projects = [
 	'/projects/front-door-and-windows/',
