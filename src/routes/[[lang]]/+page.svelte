@@ -20,10 +20,14 @@
 	import AdvantageItem from '$lib/components/AdvantageItem.svelte';
 	import CaseStudy from '$lib/components/CaseStudy.svelte';
 
+	let { data } = $props();
+
 	let isMenuOpen = $state(false);
 	let activeSection = $state('home');
 	let isScrolled = $state(false);
-	let language = $state<Language>('en');
+	let language: Language = $derived(data.language);
+
+	let otherLangHref = $derived(language === 'en' ? `${base}/nl/` : `${base}/`);
 
 	let t: Translation = $derived(translations[language]);
 
@@ -87,17 +91,14 @@
 		isMenuOpen = false;
 	}
 
-	function toggleLanguage() {
-		language = language === 'en' ? 'nl' : 'en';
-	}
 </script>
 
 <svelte:head>
-	<title>Tony Groupe | Premium Wooden Windows, Doors & Security Hardware</title>
-	<meta
-		name="description"
-		content="Tony Groupe SPRL — expert craftsmen manufacturing custom wooden windows, doors, staircases, and interior joinery with SKG3 certified security hardware. Direct manufacturer in Brussels, Belgium. 10% discount until June 1st!"
-	/>
+	{#if language === 'nl'}
+		<title>Tony Groupe | Premium Houten Kozijnen, Deuren & Veiligheidsbeslag</title>
+	{:else}
+		<title>Tony Groupe | Premium Wooden Windows, Doors & Security Hardware</title>
+	{/if}
 </svelte:head>
 
 <div class="min-h-screen bg-white">
@@ -137,14 +138,14 @@
 							{item.label}
 						</button>
 					{/each}
-					<button
-						onclick={toggleLanguage}
+					<a
+						href={otherLangHref}
 						class="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-amber-700"
 						title={language === 'en' ? 'Switch to Nederlands' : 'Schakel naar Engels'}
 					>
 						<Languages class="h-5 w-5" />
 						<span class="uppercase">{language === 'en' ? 'NL' : 'EN'}</span>
-					</button>
+					</a>
 				</div>
 
 				<button
@@ -178,13 +179,13 @@
 							{item.label}
 						</button>
 					{/each}
-					<button
-						onclick={toggleLanguage}
+					<a
+						href={otherLangHref}
 						class="flex w-full items-center space-x-2 rounded-lg px-4 py-2 text-gray-700 transition-colors hover:bg-gray-50"
 					>
 						<Languages class="h-5 w-5" />
 						<span>{language === 'en' ? 'Nederlands' : 'English'}</span>
-					</button>
+					</a>
 					<button
 						onclick={() => scrollToSection('contact')}
 						class="w-full rounded-lg bg-amber-700 px-4 py-2 font-medium text-white transition-colors hover:bg-amber-800"
