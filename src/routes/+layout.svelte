@@ -51,6 +51,8 @@
 	<!-- Open Graph defaults -->
 	<meta property="og:site_name" content={seo.siteName} />
 	<meta property="og:type" content="website" />
+	<meta property="og:title" content={defaultTitle} />
+	<meta property="og:url" content={siteUrl + '/'} />
 	<meta property="og:image" content={siteUrl + defaultImage} />
 	<meta property="og:description" content={defaultDescription} />
 	<meta name="description" content={defaultDescription} />
