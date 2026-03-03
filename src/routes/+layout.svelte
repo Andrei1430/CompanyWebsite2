@@ -11,33 +11,9 @@
 	let currentPath = $derived(isNl ? '/nl/' : '/');
 	let description = $derived(isNl ? seo.descriptionNl : seo.description);
 	let ogLocale = $derived(isNl ? 'nl_NL' : 'en_US');
-</script>
 
-<svelte:head>
-	<link rel="icon" href={favicon} />
-	<link rel="canonical" href={siteUrl + currentPath} />
-	<link rel="alternate" href={siteUrl + '/'} hreflang="en" />
-	<link rel="alternate" href={siteUrl + '/nl/'} hreflang="nl" />
-	<link rel="alternate" href={siteUrl + '/'} hreflang="x-default" />
-
-	<!-- Open Graph -->
-	<meta property="og:site_name" content={seo.siteName} />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content={seo.siteName} />
-	<meta property="og:url" content={siteUrl + currentPath} />
-	<meta property="og:image" content={siteUrl + seo.defaultImage} />
-	<meta property="og:description" content={description} />
-	<meta name="description" content={description} />
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={seo.siteName} />
-	<meta name="twitter:description" content={description} />
-	<meta property="og:locale" content={ogLocale} />
-	<meta property="og:locale:alternate" content={isNl ? 'en_US' : 'nl_NL'} />
-
-	<!-- LocalBusiness JSON-LD -->
-	<script type="application/ld+json">
-		{JSON.stringify({
+	let jsonLd = $derived(
+		`<script type="application/ld+json">${JSON.stringify({
 			'@context': 'https://schema.org',
 			'@type': 'HomeAndConstructionBusiness',
 			name: seo.siteName,
@@ -79,8 +55,34 @@
 						'PVC and aluminum joinery',
 						'Home renovation'
 					]
-		})}
-	</script>
+		})}<\/script>`
+	);
+</script>
+
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	<link rel="canonical" href={siteUrl + currentPath} />
+	<link rel="alternate" href={siteUrl + '/'} hreflang="en" />
+	<link rel="alternate" href={siteUrl + '/nl/'} hreflang="nl" />
+	<link rel="alternate" href={siteUrl + '/'} hreflang="x-default" />
+
+	<!-- Open Graph -->
+	<meta property="og:site_name" content={seo.siteName} />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={seo.siteName} />
+	<meta property="og:url" content={siteUrl + currentPath} />
+	<meta property="og:image" content={siteUrl + seo.defaultImage} />
+	<meta property="og:description" content={description} />
+	<meta name="description" content={description} />
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={seo.siteName} />
+	<meta name="twitter:description" content={description} />
+	<meta property="og:locale" content={ogLocale} />
+	<meta property="og:locale:alternate" content={isNl ? 'en_US' : 'nl_NL'} />
+
+	<!-- LocalBusiness JSON-LD -->
+	{@html jsonLd}
 </svelte:head>
 
 {@render children()}
