@@ -94,9 +94,11 @@
 
 <svelte:head>
 	{#if language === 'nl'}
-		<title>TonyGroupe S.R.L. | Premium Houten Kozijnen, Deuren & Veiligheidsbeslag</title>
+		<title>TonyGroupe S.R.L. | Houten Kozijnen, Ramen, Deuren & Schrijnwerk op Maat | Brussel</title>
+		<meta name="keywords" content="houten kozijnen, houten ramen, houten deuren, schrijnwerk op maat, houten kozijnen België, houten ramen Nederland, thermisch isolerend glas, HR++ glas, triple glas, SKG3 beslag, veiligheidsbeslag, Roto voordeurbeslag, interieur schrijnwerk, houten trappen, keukenmeubilair, parketvloeren, woningrenovatie, kozijnen vervangen, ISDE subsidie, SVVE subsidie, schrijnwerker Brussel, timmerman België, houten kozijnen op maat, isolerende ramen, energiezuinige ramen" />
 	{:else}
-		<title>TonyGroupe S.R.L. | Premium Wooden Windows, Doors & Security Hardware</title>
+		<title>TonyGroupe S.R.L. | Custom Wooden Windows, Doors & Joinery | Brussels Manufacturer</title>
+		<meta name="keywords" content="wooden windows, wooden doors, custom joinery, wood frames, wooden window frames, bespoke joinery, thermal glass windows, HR++ glass, triple glazing, SKG3 hardware, security hardware, Roto door hardware, interior joinery, wooden staircases, kitchen furniture, parquet flooring, home renovation, window replacement, ISDE subsidy, SVVE subsidy, joiner Brussels, carpenter Belgium, custom wooden frames, insulating windows, energy efficient windows, wooden doors Belgium, wooden windows Netherlands" />
 	{/if}
 </svelte:head>
 
@@ -110,7 +112,7 @@
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="flex h-20 items-center justify-between">
 				<button onclick={() => scrollToSection('home')} class="flex cursor-pointer items-center space-x-2">
-					<img src="{base}/logo.png" alt="TonyGroupe S.R.L." class="h-8 w-8" />
+					<img src="{base}/logo.png" alt="TonyGroupe S.R.L. — Wood Division" class="h-8 w-8" width="32" height="32" />
 					<div class="flex flex-col items-start leading-tight">
 						<span class="text-lg font-bold tracking-wide text-gray-800">TONYGROUPE <span class="text-amber-600">S.R.L.</span></span>
 						<span class="text-xs font-medium tracking-wider text-gray-500">WOOD DIVISION</span>
@@ -197,7 +199,7 @@
 		<button
 			type="button"
 			class="absolute top-20 right-0 left-0 z-20 cursor-pointer bg-gradient-to-r from-amber-600 to-orange-500 px-4 py-3 text-center text-white focus:ring-2 focus:ring-amber-300 focus:outline-none"
-			aria-label="Scroll to contact form"
+			aria-label={language === 'en' ? 'View current offer — scroll to contact form' : 'Bekijk huidige aanbieding — scroll naar contactformulier'}
 			onclick={() => scrollToSection('contact')}
 		>
 			<div
@@ -318,8 +320,12 @@
 					<div class="relative aspect-[4/3] w-full lg:aspect-[16/10]">
 						<img
 							src="{base}/Cover.jfif"
-							alt="TonyGroupe S.R.L. - Premium Wooden Joinery & Security Hardware"
+							alt={language === 'nl'
+								? 'Op maat gemaakte houten kozijnen en deuren door TonyGroupe S.R.L. — directe fabrikant in Brussel'
+								: 'Custom wooden window frames and doors by TonyGroupe S.R.L. — direct manufacturer in Brussels'}
 							class="absolute inset-0 h-full w-full rounded-3xl object-cover object-center shadow-2xl"
+							width="600"
+							height="400"
 						/>
 					</div>
 				</div>
@@ -550,8 +556,13 @@
 				<div class="relative">
 					<img
 						src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
-						alt="Beautiful Belgian home with wooden windows"
+						alt={language === 'nl'
+							? 'Belgische woning met houten kozijnen en ramen — voorbeeld van TonyGroupe vakmanschap'
+							: 'Belgian home with wooden window frames — example of TonyGroupe craftsmanship'}
 						class="rounded-2xl shadow-2xl"
+						width="800"
+						height="600"
+						loading="lazy"
 					/>
 					<div class="absolute -bottom-6 -left-6 rounded-xl bg-white p-6 shadow-xl">
 						<div class="flex items-center space-x-4">
@@ -562,7 +573,7 @@
 								<div class="text-2xl font-bold text-gray-900">
 									{t.advantages.uValue}
 								</div>
-								<div class="text-sm text-gray-600">Substantial heat loss reduction</div>
+								<div class="text-sm text-gray-600">{language === 'nl' ? 'Tot 40% minder warmteverlies' : 'Up to 40% heat loss reduction'}</div>
 							</div>
 						</div>
 					</div>
@@ -872,7 +883,7 @@
 			<div class="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
 				<div>
 					<h3 class="mb-4 text-lg font-semibold">{t.footer.quickLinks}</h3>
-					<div class="space-y-2">
+					<nav class="space-y-2" aria-label={language === 'nl' ? 'Snelle links' : 'Quick links'}>
 						{#each navItems as item}
 							<button
 								onclick={() => scrollToSection(item.id)}
@@ -881,11 +892,11 @@
 								{item.label}
 							</button>
 						{/each}
-					</div>
+					</nav>
 				</div>
 				<div class="text-center md:text-left">
 					<div class="mb-4 inline-flex items-center space-x-2 md:inline-flex">
-						<img src="{base}/logo.png" alt="TonyGroupe S.R.L." class="h-8 w-8" />
+						<img src="{base}/logo.png" alt="TonyGroupe S.R.L." class="h-8 w-8" width="32" height="32" />
 						<div class="flex flex-col items-start leading-tight">
 							<span class="text-lg font-bold tracking-wide text-white">TONYGROUPE <span class="text-amber-400">S.R.L.</span></span>
 							<span class="text-xs font-medium tracking-wider text-gray-500">WOOD DIVISION</span>
