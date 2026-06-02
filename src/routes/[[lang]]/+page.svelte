@@ -32,7 +32,6 @@
 	let t: Translation = $derived(translations[language]);
 
 	const navItems = $derived([
-		{ id: 'home', label: t.nav.home },
 		{ id: 'services', label: t.nav.services },
 		{ id: 'advantages', label: t.nav.advantages },
 		{ id: 'hardware', label: t.nav.hardware },
@@ -95,9 +94,9 @@
 
 <svelte:head>
 	{#if language === 'nl'}
-		<title>Tony Groupe | Premium Houten Kozijnen, Deuren & Veiligheidsbeslag</title>
+		<title>TonyGroupe S.R.L. | Premium Houten Kozijnen, Deuren & Veiligheidsbeslag</title>
 	{:else}
-		<title>Tony Groupe | Premium Wooden Windows, Doors & Security Hardware</title>
+		<title>TonyGroupe S.R.L. | Premium Wooden Windows, Doors & Security Hardware</title>
 	{/if}
 </svelte:head>
 
@@ -110,22 +109,13 @@
 	>
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="flex h-20 items-center justify-between">
-				<div class="flex items-center space-x-2">
-					<svg
-						class="h-8 w-8 text-amber-700"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path d="M12 22v-7l-2-2" />
-						<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
-						<path d="m14 14-2-2" />
-					</svg>
-					<span class="text-lg font-bold text-amber-700">Tony Groupe</span>
-				</div>
+				<button onclick={() => scrollToSection('home')} class="flex cursor-pointer items-center space-x-2">
+					<img src="{base}/logo.png" alt="TonyGroupe S.R.L." class="h-8 w-8" />
+					<div class="flex flex-col items-start leading-tight">
+						<span class="text-lg font-bold tracking-wide text-gray-800">TONYGROUPE <span class="text-amber-600">S.R.L.</span></span>
+						<span class="text-xs font-medium tracking-wider text-gray-500">WOOD DIVISION</span>
+					</div>
+				</button>
 
 				<div class="hidden items-center space-x-8 md:flex">
 					{#each navItems as item}
@@ -328,7 +318,7 @@
 					<div class="relative aspect-[4/3] w-full lg:aspect-[16/10]">
 						<img
 							src="{base}/Cover.jfif"
-							alt="Tony Groupe - Premium Wooden Joinery & Security Hardware"
+							alt="TonyGroupe S.R.L. - Premium Wooden Joinery & Security Hardware"
 							class="absolute inset-0 h-full w-full rounded-3xl object-cover object-center shadow-2xl"
 						/>
 					</div>
@@ -763,8 +753,8 @@
 					onsubmit={() => sessionStorage.setItem('web3forms_submitted', '1')}
 				>
 					<input type="hidden" name="access_key" value="321a5c5d-60f4-474d-8566-2a55ff1c1233" />
-					<input type="hidden" name="subject" value="New Joinery Inquiry - Tony Groupe" />
-					<input type="hidden" name="from_name" value="Tony Groupe Website" />
+					<input type="hidden" name="subject" value="New Joinery Inquiry - TonyGroupe S.R.L." />
+					<input type="hidden" name="from_name" value="TonyGroupe S.R.L. Website" />
 					<div class="grid gap-6 md:grid-cols-2">
 						<div>
 							<label for="name" class="mb-2 block text-sm font-medium text-gray-700">
@@ -895,30 +885,30 @@
 				</div>
 				<div class="text-center md:text-left">
 					<div class="mb-4 inline-flex items-center space-x-2 md:inline-flex">
-						<svg
-							class="h-8 w-8 text-amber-400"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="M12 22v-7l-2-2" />
-							<path d="M17 8v.8A6 6 0 0 1 13.8 20v0H10v0A6.5 6.5 0 0 1 7 8h0a5 5 0 0 1 10 0Z" />
-							<path d="m14 14-2-2" />
-						</svg>
-						<span class="text-lg font-bold text-amber-400">Tony Groupe</span>
+						<img src="{base}/logo.png" alt="TonyGroupe S.R.L." class="h-8 w-8" />
+						<div class="flex flex-col items-start leading-tight">
+							<span class="text-lg font-bold tracking-wide text-white">TONYGROUPE <span class="text-amber-400">S.R.L.</span></span>
+							<span class="text-xs font-medium tracking-wider text-gray-500">WOOD DIVISION</span>
+						</div>
 					</div>
 					<p class="text-lg text-gray-400">{t.footer.description}</p>
 					<div class="mt-4 flex items-start gap-2 text-sm text-gray-500">
 						<MapPin class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" />
 						<span>{t.footer.address}</span>
 					</div>
+					<a
+						href="https://www.tonygroupe.be/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="mt-3 inline-flex items-center gap-1 text-sm text-amber-400 transition-colors hover:text-amber-300"
+					>
+						www.tonygroupe.be
+						<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+					</a>
 				</div>
 			</div>
 			<div class="mt-12 border-t border-gray-800 pt-8 text-center text-gray-400">
-				<p>&copy; {new Date().getFullYear()} TONY GROUPE SPRL. {t.footer.copyright}</p>
+				<p>&copy; {new Date().getFullYear()} TONYGROUPE S.R.L. {t.footer.copyright}</p>
 			</div>
 		</div>
 	</footer>
