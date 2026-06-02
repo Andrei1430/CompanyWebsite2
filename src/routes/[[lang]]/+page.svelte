@@ -192,13 +192,12 @@
 	<!-- Hero Section -->
 	<section
 		id="home"
-		class="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-amber-50 via-white to-orange-50 pt-20"
+		class="relative flex min-h-screen items-center overflow-hidden bg-white pt-20"
 	>
-		<div class="bg-grid-pattern absolute inset-0 opacity-5"></div>
 		<!-- Promotional Banner -->
 		<button
 			type="button"
-			class="absolute top-20 right-0 left-0 z-20 cursor-pointer bg-gradient-to-r from-amber-600 to-orange-500 px-4 py-3 text-center text-white focus:ring-2 focus:ring-amber-300 focus:outline-none"
+			class="absolute top-20 right-0 left-0 z-20 cursor-pointer bg-amber-700 px-4 py-3 text-center text-white focus:outline-none"
 			aria-label={language === 'en' ? 'View current offer — scroll to contact form' : 'Bekijk huidige aanbieding — scroll naar contactformulier'}
 			onclick={() => scrollToSection('contact')}
 		>
@@ -215,14 +214,9 @@
 		<div class="relative z-10 mx-auto max-w-7xl px-4 py-20 pt-32 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<div class="animate-fade-in space-y-6">
-					<div class="flex flex-wrap gap-2">
-						<span class="rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-800">
-							{t.hero.badge}
-						</span>
-						<span class="rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-800">
-							{t.hero.manufacturerBadge}
-						</span>
-					</div>
+					<p class="text-sm font-medium tracking-wide text-amber-700 uppercase">
+						{t.hero.badge} · {t.hero.manufacturerBadge}
+					</p>
 					<h1 class="text-4xl leading-tight font-bold text-gray-900 lg:text-5xl">
 						{t.hero.title}
 						<span class="text-amber-700"> {t.hero.titleHighlight}</span>
@@ -230,7 +224,7 @@
 					<p class="text-lg leading-relaxed text-gray-600">
 						{t.hero.description}
 					</p>
-					<div class="rounded-2xl bg-green-100/60 p-4">
+					<div class="border-l-2 border-green-600 bg-gray-50 p-4">
 						<div class="flex items-start gap-3">
 							<svg
 								class="mt-0.5 h-6 w-6 flex-shrink-0 text-green-600"
@@ -313,17 +307,14 @@
 						</button>
 					</div>
 				</div>
-				<div class="animate-slide-in relative w-full max-w-[500px] lg:max-w-[600px]">
-					<div
-						class="absolute inset-0 rotate-3 transform rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 opacity-20"
-					></div>
+				<div class="relative w-full max-w-[500px] lg:max-w-[600px]">
 					<div class="relative aspect-[4/3] w-full lg:aspect-[16/10]">
 						<img
 							src="{base}/Cover.jfif"
 							alt={language === 'nl'
 								? 'Op maat gemaakte houten kozijnen en deuren door TonyGroupe S.R.L. — directe fabrikant in Brussel'
 								: 'Custom wooden window frames and doors by TonyGroupe S.R.L. — direct manufacturer in Brussels'}
-							class="absolute inset-0 h-full w-full rounded-3xl object-cover object-center shadow-2xl"
+							class="absolute inset-0 h-full w-full rounded-lg object-cover object-center shadow-lg"
 							width="600"
 							height="400"
 						/>
@@ -333,9 +324,9 @@
 		</div>
 		<button
 			onclick={() => scrollToSection('services')}
-			class="absolute bottom-8 left-1/2 -translate-x-1/2 transform animate-bounce"
+			class="absolute bottom-8 left-1/2 -translate-x-1/2 transform"
 		>
-			<ChevronDown class="h-8 w-8 text-amber-700" />
+			<ChevronDown class="h-7 w-7 text-gray-400" />
 		</button>
 	</section>
 
@@ -559,12 +550,12 @@
 						alt={language === 'nl'
 							? 'Belgische woning met houten kozijnen en ramen — voorbeeld van TonyGroupe vakmanschap'
 							: 'Belgian home with wooden window frames — example of TonyGroupe craftsmanship'}
-						class="rounded-2xl shadow-2xl"
+						class="rounded-lg shadow-lg"
 						width="800"
 						height="600"
 						loading="lazy"
 					/>
-					<div class="absolute -bottom-6 -left-6 rounded-xl bg-white p-6 shadow-xl">
+					<div class="absolute -bottom-6 -left-6 rounded-lg bg-white p-5 shadow-md">
 						<div class="flex items-center space-x-4">
 							<div class="rounded-lg bg-amber-100 p-3">
 								<Thermometer class="h-8 w-8 text-amber-700" />
@@ -596,7 +587,7 @@
 
 			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<!-- Security Disc Hinges -->
-				<div class="group rounded-2xl border-2 border-amber-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
+				<div class="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
 					<div class="mb-6 flex items-center gap-4">
 						<div class="rounded-xl bg-amber-100 p-3">
 							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -610,8 +601,8 @@
 						<div>
 							<h3 class="text-xl font-bold text-gray-900">{t.hardware.hinges.title}</h3>
 							<div class="mt-1 flex flex-wrap gap-1.5">
-								<span class="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800">SKG3</span>
-								<span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-800">Police Safe Living</span>
+								<span class="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">SKG3</span>
+								<span class="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">Police Safe Living</span>
 							</div>
 						</div>
 					</div>
@@ -627,7 +618,7 @@
 				</div>
 
 				<!-- Roto Entry Door Hardware -->
-				<div class="group rounded-2xl border-2 border-amber-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
+				<div class="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
 					<div class="mb-6 flex items-center gap-4">
 						<div class="rounded-xl bg-amber-100 p-3">
 							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -639,9 +630,9 @@
 						<div>
 							<h3 class="text-xl font-bold text-gray-900">{t.hardware.rotoHardware.title}</h3>
 							<div class="mt-1 flex flex-wrap gap-1.5">
-								<span class="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-800">RC 2 / RC 3</span>
-								<span class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800">VdS</span>
-								<span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-800">10 yr warranty</span>
+								<span class="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">RC 2 / RC 3</span>
+								<span class="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">VdS</span>
+								<span class="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">10 yr warranty</span>
 							</div>
 						</div>
 					</div>
@@ -657,7 +648,7 @@
 				</div>
 
 				<!-- Protective Door Strip -->
-				<div class="group rounded-2xl border-2 border-amber-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl">
+				<div class="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
 					<div class="mb-6 flex items-center gap-4">
 						<div class="rounded-xl bg-amber-100 p-3">
 							<Shield class="h-8 w-8 text-amber-700" />
@@ -665,8 +656,8 @@
 						<div>
 							<h3 class="text-xl font-bold text-gray-900">{t.hardware.doorStrip.title}</h3>
 							<div class="mt-1 flex flex-wrap gap-1.5">
-								<span class="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800">SKG</span>
-								<span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-800">5 yr warranty</span>
+								<span class="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">SKG</span>
+								<span class="rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">5 yr warranty</span>
 							</div>
 						</div>
 					</div>
@@ -738,7 +729,7 @@
 	</section>
 
 	<!-- Contact Section -->
-	<section id="contact" class="bg-gradient-to-br from-amber-50 to-orange-50 py-20">
+	<section id="contact" class="bg-gray-50 py-20">
 		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-12 text-center">
 				<h2 class="mb-4 text-4xl font-bold text-gray-900">
@@ -750,7 +741,7 @@
 
 			<!-- Discount reminder box -->
 			<div
-				class="mb-8 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-center text-white"
+				class="mb-8 rounded-lg bg-amber-700 p-6 text-center text-white"
 			>
 				<p class="mb-2 text-xl font-bold">{t.promo.mainDiscount}</p>
 				<p class="text-sm opacity-90">{t.promo.totalSavings}</p>

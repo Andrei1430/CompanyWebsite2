@@ -197,7 +197,7 @@ export const translations: Record<Language, Translation> = {
 			getQuote: 'Get Quote'
 		},
 		promo: {
-			badge: '🎉 Limited Time Offer',
+			badge: 'Limited Time Offer',
 			mainDiscount: '10% OFF all orders until August 15th!',
 			referralDiscount: '+10% extra when your referral places an order',
 			validUntil: 'Valid until August 15th, 2026',
@@ -457,7 +457,7 @@ export const translations: Record<Language, Translation> = {
 			getQuote: 'Offerte Aanvragen'
 		},
 		promo: {
-			badge: '🎉 Tijdelijke Aanbieding',
+			badge: 'Tijdelijke Aanbieding',
 			mainDiscount: '10% KORTING op alle bestellingen tot 15 augustus!',
 			referralDiscount: '+10% extra wanneer uw doorverwijzing een bestelling plaatst',
 			validUntil: 'Geldig tot 15 augustus 2026',

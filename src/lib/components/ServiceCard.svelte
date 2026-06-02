@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CheckCircle, Star } from 'lucide-svelte';
+	import { CheckCircle } from 'lucide-svelte';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
@@ -14,18 +14,10 @@
 </script>
 
 <div
-	class="group relative rounded-xl border border-gray-100 bg-amber-50/50 p-8 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl {isPrimary
-		? 'ring-2 ring-amber-400'
+	class="group relative rounded-lg border border-gray-200 bg-white p-8 transition-shadow hover:shadow-md {isPrimary
+		? 'border-amber-300'
 		: ''}"
 >
-	{#if isPrimary}
-		<div
-			class="absolute -top-3 right-4 flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3 py-1 text-xs font-semibold text-white shadow-md"
-		>
-			<Star class="h-3 w-3 fill-current" />
-			<span>Our Specialty</span>
-		</div>
-	{/if}
 	<div class="mb-4 text-amber-700">
 		{@render icon()}
 	</div>
