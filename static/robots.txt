@@ -1,11 +1,11 @@
-# TonyGroupe S.R.L. — Houten Kozijnen, Ramen, Deuren & Renovaties
-# Custom wooden window frames, doors and renovations — Brussels & the Netherlands
+# TonyGroupe S.R.L. — Houten Kozijnen, Châssis Bois, Wooden Window Frames & Renovations
+# Custom joinery and home renovations — Brussels, Belgium & the Netherlands
 
 User-agent: *
 Allow: /
 Disallow: /api/
 
-# Major search & AI crawlers — explicitly welcomed
+# Major search & AI crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -24,5 +24,6 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# Sitemap
+# Sitemaps
 Sitemap: https://houten-kozijnen-isolerend-glas.nl/sitemap.xml
+Sitemap: https://houten-kozijnen-isolerend-glas.nl/sitemap-images.xml

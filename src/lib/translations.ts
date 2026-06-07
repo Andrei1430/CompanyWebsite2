@@ -197,7 +197,7 @@ export interface Translation {
 	};
 }
 
-export type Language = 'en' | 'nl';
+export type Language = 'en' | 'nl' | 'fr';
 
 export const translations: Record<Language, Translation> = {
 	en: {
@@ -834,6 +834,327 @@ export const translations: Record<Language, Translation> = {
 			servesTitle: 'Werkgebied',
 			servesText:
 				'Houten kozijnen, ramen, deuren en woningrenovaties door heel België en Nederland — waaronder Brussel, Antwerpen, Gent, Luik, Amsterdam, Rotterdam, Den Haag, Utrecht en Eindhoven.'
+		}
+	},
+	fr: {
+		nav: {
+			home: 'Accueil',
+			services: 'Services',
+			advantages: 'Pourquoi Nous',
+			hardware: 'Quincaillerie & Sécurité',
+			cases: 'Nos Réalisations',
+			faq: 'Questions Fréquentes',
+			contact: 'Contact',
+			getQuote: 'Demander un Devis'
+		},
+		promo: {
+			badge: 'Offre Limitée',
+			mainDiscount: '10% DE RÉDUCTION sur toutes les commandes jusqu’au 15 août !',
+			referralDiscount: '+10% supplémentaires lorsque votre filleul passe commande',
+			validUntil: 'Valable jusqu’au 15 août 2026',
+			totalSavings: 'Économisez plus de 20% lorsque vos filleuls deviennent clients !'
+		},
+		hero: {
+			badge: 'Fabricant Direct - Sans Intermédiaire',
+			manufacturerBadge: 'Nous Fabriquons, Nous Posons',
+			title: 'Châssis Bois sur Mesure, Portes &',
+			titleHighlight: 'Rénovations de Maison',
+			tagline:
+				'Menuiserie bois artisanale — service à l’écoute, prix justes, vrais artisans bruxellois.',
+			description:
+				'Atelier familial qui fabrique des châssis bois sur mesure (kozijnen), des portes et de la menuiserie intérieure avec double vitrage thermique HR++ ou triple vitrage. Nous prenons aussi en charge les rénovations complètes, les escaliers, les cuisines et les parquets. Châssis PVC et aluminium disponibles sur demande.',
+			subsidyText:
+				'Nos produits répondent aux exigences des primes énergie ! Renseignez-vous sur les primes Bruxelles Environnement, Wallonie Énergie et les subsides ISDE / SVVE pour nos clients aux Pays-Bas.',
+			subsidyLinkISDE: 'Programme ISDE',
+			subsidyLinkSVVE: 'Programme SVVE',
+			ctaPrimary: 'Demander un Devis Gratuit',
+			ctaSecondary: 'Voir Nos Services',
+			stats: {
+				projects: 'Projets Réalisés',
+				satisfaction: 'Satisfaction Client',
+				savings: 'Économies d’Énergie'
+			}
+		},
+		services: {
+			title: 'Nos Services',
+			subtitle:
+				'Châssis bois, portes, rénovations et menuiserie intérieure sur mesure — fabriqués dans notre atelier à Bruxelles',
+			primaryLabel: 'Spécialité Principale',
+			secondaryLabel: 'Aussi Disponible',
+			woodenJoinery: {
+				title: 'Châssis Bois & Portes sur Mesure',
+				description:
+					'Châssis bois sur mesure et portes avec double vitrage HR++ ou triple vitrage pour une isolation supérieure. Fabriqués dans notre propre atelier avec des techniques de menuiserie traditionnelles et des profilés à rupture de pont thermique — parfaits pour le remplacement de châssis ou la construction neuve.',
+				features: [
+					'Double vitrage HR++ & triple vitrage',
+					'Pin du Nord, épicéa & chêne',
+					'Sur mesure',
+					'Garantie fabricant 10 ans'
+				]
+			},
+			interiorJoinery: {
+				title: 'Menuiserie Intérieure & Mobilier',
+				description:
+					'Escaliers en bois sur mesure, cuisines, dressings encastrés et portes intérieures. Fabriqués à la main en bois massif pour correspondre au caractère de votre habitation, avec finitions allant de l’huile naturelle aux laques colorées.',
+				features: [
+					'Escaliers sur mesure',
+					'Cuisines en bois',
+					'Dressings encastrés',
+					'Portes intérieures'
+				]
+			},
+			fullRenovation: {
+				title: 'Rénovations de Maison',
+				description:
+					'Services de rénovation complète — remplacement de châssis, rénovation de portes, réparations structurelles en bois, carrelage, peinture et rénovation intérieure complète. Une seule équipe fiable de A à Z, vous évitant de jongler avec plusieurs entrepreneurs.',
+				features: [
+					'Remplacement de châssis',
+					'Mise à niveau HR++ & triple vitrage',
+					'Restauration de fenêtres en bois',
+					'Rénovation de portes',
+					'Rénovation intérieure complète (carrelage, peinture, réparations)'
+				]
+			},
+			pvcAluminum: {
+				title: 'Châssis PVC & Aluminium',
+				description:
+					'Châssis PVC et aluminium modernes pour ceux qui préfèrent un matériau sans entretien. Mêmes performances thermiques que notre gamme bois, avec des profilés fins et une large palette de couleurs.',
+				features: [
+					'Sans entretien',
+					'Profilés à rupture de pont thermique',
+					'Esthétique moderne',
+					'Large palette de couleurs'
+				]
+			},
+			subsidyEligible: {
+				title: 'Produits Éligibles aux Primes Énergie',
+				description:
+					'Maximisez vos économies avec nos châssis et portes éligibles aux primes énergie. Tous nos produits respectent les exigences des programmes ISDE / SVVE (Pays-Bas) et des primes Bruxelles Environnement / Wallonie Énergie — vous réduisez vos factures et votre empreinte carbone.',
+				features: [
+					'Vitrage HR++ (U ≤ 1,2 W/m²K)',
+					'Triple vitrage (U ≤ 0,7 W/m²K)',
+					'Portes isolantes (Ud ≤ 1,0-1,5)',
+					'Châssis à rupture de pont thermique',
+					'Produits certifiés conformes'
+				]
+			},
+			flooring: {
+				title: 'Parquets & Planchers en Bois',
+				description:
+					'Pose professionnelle de parquets et planchers en bois haut de gamme. Des chevrons et bâtons rompus classiques aux grandes lames de chêne — ponçage, huilage et rénovation des parquets existants inclus.',
+				features: ['Parquet massif', 'Motifs chevrons & bâtons rompus', 'Multicouche', 'Ponçage & rénovation']
+			}
+		},
+		advantages: {
+			title: 'Pourquoi Nous Choisir',
+			subtitle: 'Une menuiserie familiale et conviviale avec des décennies d’expérience',
+			manufacturer: {
+				title: 'Direct de l’Atelier',
+				description:
+					'Nous fabriquons tout dans notre propre atelier à Bruxelles — pas d’intermédiaire, pas de revendeur, pas de surcoût caché. Vous discutez directement avec les artisans qui fabriquent vos châssis, portes et meubles.'
+			},
+			thermal: {
+				title: 'Performance Thermique Supérieure',
+				description:
+					'Nos doubles vitrages HR++ et triples vitrages, combinés à des châssis ajustés au millimètre, réduisent les pertes de chaleur jusqu’à 40%. Factures d’énergie plus basses, maison plus calme et pièces plus chaudes toute l’année.'
+			},
+			quality: {
+				title: 'Qualité Artisanale Honnête',
+				description:
+					'Techniques de menuiserie traditionnelles combinées à la technologie moderne. Chaque châssis, porte et escalier est construit pour durer des générations — et vous êtes toujours le bienvenu pour visiter l’atelier.'
+			},
+			custom: {
+				title: 'Entièrement Sur Mesure',
+				description:
+					'Pas de dimensions standard. Chaque châssis, porte et meuble est fabriqué selon vos dimensions exactes, votre profilé et votre style — maisons de maître et bâtiments classés bienvenus.'
+			},
+			uValue: 'Performance Thermique'
+		},
+		hardware: {
+			title: 'Quincaillerie & Sécurité',
+			subtitle:
+				'Quincaillerie premium et ferrures de sécurité certifiées pour une protection et une durabilité maximales',
+			hinges: {
+				title: 'Paumelles de Sécurité',
+				description:
+					'Paumelles à disque en acier avec mouvement fluide anti-effraction et capacité de charge extra-large à coins arrondis. Conçues pour les fenêtres et portes extérieures. Dispositif antivol intégré, conception auto-lubrifiante et résistante à l’usure — fini les traces noires sur la peinture. Roulements biseautés auto-positionnants qui ne peuvent pas tomber grâce au collier de fixation. Trous de vis en étoile pour réduire le risque de casse.',
+				features: [
+					'Label Police Safe Living',
+					'Certifié SKG3',
+					'Dispositif antivol intégré',
+					'Auto-lubrifiant & anti-usure',
+					'Capacité de charge extra-large',
+					'Coins arrondis pour la sécurité'
+				]
+			},
+			rotoHardware: {
+				title: 'Ferrures de Porte d’Entrée Roto',
+				description:
+					'Ferrures Roto haut de gamme pour portes d’entrée, offrant le plus haut niveau de sécurité et de confort. Verrouillage automatique sans clé, avec actionneur électronique optionnel pour une utilisation entièrement automatique.',
+				features: [
+					'Verrouillage automatique sans clé',
+					'Fonction « ouverture jour » pour entrer sans clé',
+					'Actionneur électronique optionnel',
+					'Trois points de verrouillage automatiques (RC 2 / RC 3)',
+					'Pêne dormant à déclenchement automatique',
+					'Protection anti-effraction testée VdS',
+					'Crochet & pêne automatiques sans clé',
+					'Garantie de fonctionnement 10 ans'
+				]
+			},
+			doorStrip: {
+				title: 'Profilé Anti-Effraction',
+				description:
+					'Profilé de protection pour portes extérieures, mesure de sécurité préventive. Délivre un effet de retardement très puissant en cas de tentative d’effraction, vous offrant un temps précieux supplémentaire.',
+				features: [
+					'Forte action retardatrice',
+					'Testé et certifié SKG',
+					'Garantie 5 ans',
+					'Convient à toutes les portes extérieures'
+				]
+			}
+		},
+		cases: {
+			title: 'Nos Projets Récents',
+			subtitle: 'Menuiserie et rénovations de qualité partout en Belgique et aux Pays-Bas',
+			project1: {
+				title: 'Escalier Bois & Mobilier Sur Mesure',
+				description:
+					'Escaliers en bois et mobilier sur mesure réalisés avec précision. Des escaliers imposants aux dressings et armoires élégantes, chaque pièce illustre les techniques traditionnelles combinées au design contemporain.',
+				results: ['Escalier sur mesure', 'Dressings & armoires encastrés', 'Fabrication sur mesure']
+			},
+			project2: {
+				title: 'Rénovation Appartement — Porte-Fenêtre & Châssis',
+				description:
+					'Remplacement complet de la porte-fenêtre du balcon et des châssis avec double vitrage thermique HR++ premium. Esthétique moderne et isolation supérieure pour un confort toute l’année.',
+				results: [
+					'Remplacement porte-fenêtre',
+					'Nouveaux châssis thermiques',
+					'Isolation améliorée',
+					'Plus de lumière naturelle'
+				]
+			},
+			project3: {
+				title: 'Rénovation Maison — Porte d’Entrée Bois & Châssis',
+				description:
+					'Transformation complète de la façade avec une porte d’entrée en bois sur mesure et des châssis bois assortis. Vrai savoir-faire artisanal qui valorise l’aspect extérieur tout en maximisant les performances thermiques.',
+				results: [
+					'Porte d’entrée sur mesure',
+					'Châssis bois assortis',
+					'Façade valorisée',
+					'Efficacité thermique supérieure'
+				]
+			}
+		},
+		faq: {
+			title: 'Questions Fréquentes',
+			subtitle: 'Tout ce que vous voulez savoir sur les châssis bois, les rénovations et notre processus',
+			items: [
+				{
+					question: 'Combien de temps durent des châssis bois sur mesure ?',
+					answer:
+						'Un châssis bois bien fabriqué en bois de qualité (nous utilisons du pin du Nord, de l’épicéa et du chêne) dure plus de 50 ans avec un entretien de base — repeinture tous les 8 à 10 ans environ. Le bois vieillit aussi très bien, c’est pourquoi nous le recommandons fortement pour les maisons de caractère et les bâtiments classés.'
+				},
+				{
+					question: 'Pouvez-vous remplacer des châssis existants sans abîmer le mur ?',
+					answer:
+						'Oui. Nous démontons les anciens châssis avec soin, préparons l’ouverture et posons le nouveau châssis bois avec une étanchéité précise. La plupart des remplacements prennent une journée par ouverture, avec un minimum de dérangement. Nous nettoyons tout et finissons les retours intérieurs, pour que la pièce paraisse mieux qu’avant.'
+				},
+				{
+					question: 'Vos châssis sont-ils éligibles aux primes énergie bruxelloises ou wallonnes ?',
+					answer:
+						'Oui — nos châssis bois avec double vitrage HR++ ou triple vitrage répondent aux exigences de coefficient U pour les primes Bruxelles Environnement (Renolution) et Wallonie Énergie. Nous fournissons tous les documents techniques et attestations nécessaires à votre dossier de prime. Pour nos clients aux Pays-Bas, nous gérons aussi les subsides ISDE et SVVE.'
+				},
+				{
+					question: 'Combien coûte un châssis bois sur mesure ?',
+					answer:
+						'Le prix dépend des dimensions, du type de vitrage (HR++ ou triple), de la quincaillerie et de la finition. Comme nous fabriquons en interne, nos clients économisent en moyenne 15 à 30% par rapport à un revendeur. Demandez un devis gratuit et sans engagement, nous vous fournirons un prix détaillé par ouverture.'
+				},
+				{
+					question: 'Faites-vous des rénovations complètes ou uniquement des châssis ?',
+					answer:
+						'Les deux. Beaucoup de nos clients commencent par un remplacement de châssis, puis nous confient le reste — carrelage, peinture, portes, cuisines, escaliers, parquets. Nous avons une petite équipe interne qui peut prendre en charge une rénovation complète de A à Z, vous n’avez pas besoin de coordonner plusieurs entrepreneurs.'
+				},
+				{
+					question: 'Travaillez-vous aussi en Wallonie et aux Pays-Bas ?',
+					answer:
+						'Oui. Notre atelier est à Bruxelles mais nous travaillons partout en Belgique (Wallonie et Flandre) et aux Pays-Bas — y compris Liège, Namur, Charleroi, Anvers, Gand, Amsterdam, Rotterdam, La Haye et Utrecht. Les démarches de prime ou de subside sont incluses dans notre service.'
+				},
+				{
+					question: 'Bois, PVC ou aluminium — que choisir ?',
+					answer:
+						'Le bois est chaleureux, vieillit magnifiquement et convient parfaitement aux maisons de caractère et bâtiments classés. Le PVC est le plus économique et sans entretien. L’aluminium offre les profilés les plus fins pour de grandes baies vitrées modernes. Avec le bon vitrage et la bonne quincaillerie, les trois offrent les mêmes performances thermiques — nous vous présentons les compromis lors d’une consultation gratuite.'
+				},
+				{
+					question: 'Quelle quincaillerie et sécurité installez-vous en standard ?',
+					answer:
+						'Toutes nos portes d’entrée en bois sont équipées de ferrures Roto (RC 2 / RC 3 anti-effraction, testées VdS), de paumelles de sécurité certifiées SKG3 et d’un profilé anti-effraction. Nos paumelles portent le label Police Safe Living. Des classes de sécurité supérieures sont disponibles sur demande.'
+				},
+				{
+					question: 'Combien de temps prend un projet, du devis à la pose ?',
+					answer:
+						'Un remplacement de châssis standard prend 4 à 6 semaines : 1 à 2 semaines pour le métré et la validation du design, 2 à 3 semaines de fabrication en atelier, puis pose en 1 à 2 jours par ouverture. Les projets de rénovation plus importants sont planifiés avec un calendrier clair semaine par semaine.'
+				}
+			]
+		},
+		contact: {
+			title: 'Recevez Votre Devis Gratuit',
+			subtitle: 'Parlez-nous de votre projet et recevez un devis sans engagement',
+			manufacturerNote: 'Direct de notre atelier – sans surcoût d’intermédiaire',
+			form: {
+				name: 'Nom Complet',
+				email: 'Adresse E-mail',
+				phone: 'Numéro de Téléphone',
+				propertyType: 'Type de Bien',
+				propertyOptions: {
+					select: 'Sélectionnez le type',
+					house: 'Maison',
+					apartment: 'Appartement',
+					commercial: 'Commercial',
+					other: 'Autre'
+				},
+				serviceInterest: 'Service Souhaité',
+				serviceOptions: {
+					select: 'Sélectionnez un service',
+					woodenWindows: 'Châssis Bois',
+					woodenDoors: 'Portes en Bois',
+					interiorJoinery: 'Menuiserie Intérieure',
+					staircase: 'Escalier Sur Mesure',
+					kitchen: 'Cuisine en Bois',
+					fullRenovation: 'Rénovation Complète',
+					pvcAluminum: 'Châssis PVC/Aluminium',
+					assessment: 'Visite d’Évaluation Gratuite'
+				},
+				message: 'Détails du Projet',
+				messagePlaceholder:
+					'Décrivez votre projet : nombre de châssis/portes, type de travaux, matériaux préférés, délais...',
+				submit: 'Demander un Devis Gratuit',
+				namePlaceholder: 'Votre nom',
+				emailPlaceholder: 'votre.email@exemple.be',
+				phonePlaceholder: '+32 XXX XX XX XX'
+			},
+			info: {
+				phone: 'Téléphone',
+				email: 'E-mail',
+				location: 'Localisation',
+				locationText: 'Bruxelles, Belgique'
+			}
+		},
+		footer: {
+			description:
+				'Atelier familial avec plus de 25 ans d’expérience en châssis bois, portes, escaliers et rénovations complètes. Fabricant direct — prix honnêtes, ferrures de sécurité certifiées et savoir-faire qui dure des générations.',
+			quickLinks: 'Liens Rapides',
+			businessHours: 'Heures d’Ouverture',
+			schedule: {
+				weekdays: 'Lun-Ven : 8h00 - 18h00',
+				saturday: 'Sam : 9h00 - 14h00',
+				sunday: 'Dim : Fermé'
+			},
+			address: 'Rue Potaerdenberg 354, B-1080 Bruxelles',
+			copyright: 'Tous droits réservés.',
+			servesTitle: 'Zones Desservies',
+			servesText:
+				'Châssis bois, portes et rénovations dans toute la Belgique et les Pays-Bas — y compris Bruxelles, Liège, Namur, Charleroi, Anvers, Gand, Amsterdam, Rotterdam, La Haye, Utrecht et Eindhoven.'
 		}
 	}
 };
