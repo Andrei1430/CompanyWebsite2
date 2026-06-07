@@ -5,15 +5,13 @@
 		Menu,
 		X,
 		ChevronDown,
-		Phone,
-		Mail,
 		MapPin,
 		ArrowRight,
 		Shield,
 		Thermometer,
-		Euro,
-		Clock,
-		Languages
+		Languages,
+		Plus,
+		Minus
 	} from 'lucide-svelte';
 	import { translations, type Language, type Translation } from '$lib/translations';
 	import ServiceCard from '$lib/components/ServiceCard.svelte';
@@ -25,6 +23,7 @@
 	let isMenuOpen = $state(false);
 	let activeSection = $state('home');
 	let isScrolled = $state(false);
+	let openFaq = $state<number | null>(0);
 	let language: Language = $derived(data.language);
 
 	let otherLangHref = $derived(language === 'en' ? `${base}/nl/` : `${base}/`);
@@ -36,6 +35,7 @@
 		{ id: 'advantages', label: t.nav.advantages },
 		{ id: 'hardware', label: t.nav.hardware },
 		{ id: 'cases', label: t.nav.cases },
+		{ id: 'faq', label: t.nav.faq },
 		{ id: 'contact', label: t.nav.contact }
 	]);
 
@@ -43,7 +43,7 @@
 		const handleScroll = () => {
 			isScrolled = window.scrollY > 50;
 
-			const sections = ['home', 'services', 'advantages', 'hardware', 'cases', 'contact'];
+			const sections = ['home', 'services', 'advantages', 'hardware', 'cases', 'faq', 'contact'];
 			const currentSection = sections.find((section) => {
 				const element = document.getElementById(section);
 				if (element) {
@@ -90,17 +90,10 @@
 		isMenuOpen = false;
 	}
 
+	function toggleFaq(index: number) {
+		openFaq = openFaq === index ? null : index;
+	}
 </script>
-
-<svelte:head>
-	{#if language === 'nl'}
-		<title>TonyGroupe S.R.L. | Houten Kozijnen, Ramen, Deuren & Schrijnwerk op Maat | Brussel</title>
-		<meta name="keywords" content="houten kozijnen, houten ramen, houten deuren, schrijnwerk op maat, houten kozijnen België, houten ramen Nederland, thermisch isolerend glas, HR++ glas, triple glas, SKG3 beslag, veiligheidsbeslag, Roto voordeurbeslag, interieur schrijnwerk, houten trappen, keukenmeubilair, parketvloeren, woningrenovatie, kozijnen vervangen, ISDE subsidie, SVVE subsidie, schrijnwerker Brussel, timmerman België, houten kozijnen op maat, isolerende ramen, energiezuinige ramen" />
-	{:else}
-		<title>TonyGroupe S.R.L. | Custom Wooden Windows, Doors & Joinery | Brussels Manufacturer</title>
-		<meta name="keywords" content="wooden windows, wooden doors, custom joinery, wood frames, wooden window frames, bespoke joinery, thermal glass windows, HR++ glass, triple glazing, SKG3 hardware, security hardware, Roto door hardware, interior joinery, wooden staircases, kitchen furniture, parquet flooring, home renovation, window replacement, ISDE subsidy, SVVE subsidy, joiner Brussels, carpenter Belgium, custom wooden frames, insulating windows, energy efficient windows, wooden doors Belgium, wooden windows Netherlands" />
-	{/if}
-</svelte:head>
 
 <div class="min-h-screen bg-white">
 	<!-- Navigation -->
@@ -108,11 +101,12 @@
 		class="fixed top-0 right-0 left-0 z-50 transition-all duration-300 {isScrolled
 			? 'bg-white shadow-lg'
 			: 'bg-white/95 backdrop-blur-sm'}"
+		aria-label={language === 'nl' ? 'Hoofdnavigatie' : 'Main navigation'}
 	>
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="flex h-20 items-center justify-between">
 				<button onclick={() => scrollToSection('home')} class="flex cursor-pointer items-center space-x-2">
-					<img src="{base}/logo.png" alt="TonyGroupe S.R.L. — Wood Division" class="h-8 w-8" width="32" height="32" />
+					<img src="{base}/logo.png" alt="TonyGroupe S.R.L. — Wood Division logo" class="h-8 w-8" width="32" height="32" />
 					<div class="flex flex-col items-start leading-tight">
 						<span class="text-lg font-bold tracking-wide text-gray-800">TONYGROUPE <span class="text-amber-600">S.R.L.</span></span>
 						<span class="text-xs font-medium tracking-wider text-gray-500">WOOD DIVISION</span>
@@ -134,6 +128,7 @@
 						href={otherLangHref}
 						class="flex items-center space-x-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-amber-700"
 						title={language === 'en' ? 'Switch to Nederlands' : 'Schakel naar Engels'}
+						hreflang={language === 'en' ? 'nl' : 'en'}
 					>
 						<Languages class="h-5 w-5" />
 						<span class="uppercase">{language === 'en' ? 'NL' : 'EN'}</span>
@@ -147,7 +142,7 @@
 					{t.nav.getQuote}
 				</button>
 
-				<button onclick={() => (isMenuOpen = !isMenuOpen)} class="p-2 text-gray-700 md:hidden">
+				<button onclick={() => (isMenuOpen = !isMenuOpen)} class="p-2 text-gray-700 md:hidden" aria-label={language === 'nl' ? 'Menu openen' : 'Open menu'}>
 					{#if isMenuOpen}
 						<X class="h-6 w-6" />
 					{:else}
@@ -174,6 +169,7 @@
 					<a
 						href={otherLangHref}
 						class="flex w-full items-center space-x-2 rounded-lg px-4 py-2 text-gray-700 transition-colors hover:bg-gray-50"
+						hreflang={language === 'en' ? 'nl' : 'en'}
 					>
 						<Languages class="h-5 w-5" />
 						<span>{language === 'en' ? 'Nederlands' : 'English'}</span>
@@ -193,6 +189,7 @@
 	<section
 		id="home"
 		class="relative flex min-h-screen items-center overflow-hidden bg-white pt-20"
+		aria-label={language === 'nl' ? 'Houten kozijnen, ramen, deuren en renovaties op maat' : 'Custom wooden window frames, doors and home renovations'}
 	>
 		<!-- Promotional Banner -->
 		<button
@@ -221,6 +218,9 @@
 						{t.hero.title}
 						<span class="text-amber-700"> {t.hero.titleHighlight}</span>
 					</h1>
+					<p class="text-base font-medium text-gray-700 italic">
+						{t.hero.tagline}
+					</p>
 					<p class="text-lg leading-relaxed text-gray-600">
 						{t.hero.description}
 					</p>
@@ -234,6 +234,7 @@
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
+								aria-hidden="true"
 							>
 								<path
 									d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
@@ -260,6 +261,7 @@
 											stroke-width="2"
 											stroke-linecap="round"
 											stroke-linejoin="round"
+											aria-hidden="true"
 										>
 											<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
 											<polyline points="15 3 21 3 21 9" />
@@ -281,6 +283,7 @@
 											stroke-width="2"
 											stroke-linecap="round"
 											stroke-linejoin="round"
+											aria-hidden="true"
 										>
 											<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
 											<polyline points="15 3 21 3 21 9" />
@@ -297,7 +300,7 @@
 							class="group flex items-center justify-center rounded-lg bg-amber-700 px-8 py-4 font-semibold text-white transition-all hover:bg-amber-800"
 						>
 							{t.hero.ctaPrimary}
-							<ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+							<ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
 						</button>
 						<button
 							onclick={() => scrollToSection('services')}
@@ -312,11 +315,13 @@
 						<img
 							src="{base}/Cover.jfif"
 							alt={language === 'nl'
-								? 'Op maat gemaakte houten kozijnen en deuren door TonyGroupe S.R.L. — directe fabrikant in Brussel'
-								: 'Custom wooden window frames and doors by TonyGroupe S.R.L. — direct manufacturer in Brussels'}
+								? 'Houten kozijnen, ramen en deuren op maat door TonyGroupe S.R.L. — directe fabrikant in Brussel, actief in heel België en Nederland'
+								: 'Custom wooden window frames, windows and doors by TonyGroupe S.R.L. — direct manufacturer in Brussels, serving Belgium and the Netherlands'}
 							class="absolute inset-0 h-full w-full rounded-lg object-cover object-center shadow-lg"
 							width="600"
 							height="400"
+							fetchpriority="high"
+							decoding="async"
 						/>
 					</div>
 				</div>
@@ -325,16 +330,17 @@
 		<button
 			onclick={() => scrollToSection('services')}
 			class="absolute bottom-8 left-1/2 -translate-x-1/2 transform"
+			aria-label={language === 'nl' ? 'Scroll naar onze diensten' : 'Scroll to our services'}
 		>
 			<ChevronDown class="h-7 w-7 text-gray-400" />
 		</button>
 	</section>
 
 	<!-- Services Section -->
-	<section id="services" class="bg-white py-20">
+	<section id="services" class="bg-white py-20" aria-labelledby="services-heading">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-16 text-center">
-				<h2 class="mb-4 text-4xl font-bold text-gray-900">
+				<h2 id="services-heading" class="mb-4 text-4xl font-bold text-gray-900">
 					{t.services.title}
 				</h2>
 				<p class="mx-auto max-w-3xl text-xl text-gray-600">
@@ -358,6 +364,7 @@
 							stroke-width="1.5"
 							stroke-linecap="round"
 							stroke-linejoin="round"
+							aria-hidden="true"
 						>
 							<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
 							<path d="M8 12l2 2 4-4" />
@@ -381,6 +388,7 @@
 							stroke-width="1.5"
 							stroke-linecap="round"
 							stroke-linejoin="round"
+							aria-hidden="true"
 						>
 							<rect x="3" y="3" width="18" height="18" rx="2" />
 							<line x1="3" y1="9" x2="21" y2="9" />
@@ -403,6 +411,7 @@
 							stroke-width="1.5"
 							stroke-linecap="round"
 							stroke-linejoin="round"
+							aria-hidden="true"
 						>
 							<path d="M22 12 L18 22 L6 22 L2 12" />
 							<path d="M12 2 L12 12" />
@@ -426,6 +435,7 @@
 							stroke-width="1.5"
 							stroke-linecap="round"
 							stroke-linejoin="round"
+							aria-hidden="true"
 						>
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
@@ -455,6 +465,7 @@
 							stroke-width="1.5"
 							stroke-linecap="round"
 							stroke-linejoin="round"
+							aria-hidden="true"
 						>
 							<rect x="2" y="6" width="20" height="12" rx="1" />
 							<line x1="2" y1="10" x2="22" y2="10" />
@@ -472,10 +483,10 @@
 	</section>
 
 	<!-- Advantages Section -->
-	<section id="advantages" class="bg-gray-50 py-20">
+	<section id="advantages" class="bg-gray-50 py-20" aria-labelledby="advantages-heading">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-16 text-center">
-				<h2 class="mb-4 text-4xl font-bold text-gray-900">
+				<h2 id="advantages-heading" class="mb-4 text-4xl font-bold text-gray-900">
 					{t.advantages.title}
 				</h2>
 				<p class="mx-auto max-w-3xl text-xl text-gray-600">
@@ -498,6 +509,7 @@
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
+								aria-hidden="true"
 							>
 								<path
 									d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
@@ -537,6 +549,7 @@
 								stroke-width="2"
 								stroke-linecap="round"
 								stroke-linejoin="round"
+								aria-hidden="true"
 							>
 								<path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
 								<path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z" />
@@ -548,12 +561,13 @@
 					<img
 						src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
 						alt={language === 'nl'
-							? 'Belgische woning met houten kozijnen en ramen — voorbeeld van TonyGroupe vakmanschap'
-							: 'Belgian home with wooden window frames — example of TonyGroupe craftsmanship'}
+							? 'Belgische woning met houten kozijnen, ramen en voordeur op maat — voorbeeld van TonyGroupe vakmanschap'
+							: 'Belgian home with custom wooden window frames, windows and front door — example of TonyGroupe craftsmanship'}
 						class="rounded-lg shadow-lg"
 						width="800"
 						height="600"
 						loading="lazy"
+						decoding="async"
 					/>
 					<div class="absolute -bottom-6 -left-6 rounded-lg bg-white p-5 shadow-md">
 						<div class="flex items-center space-x-4">
@@ -574,10 +588,10 @@
 	</section>
 
 	<!-- Hardware & Security Section -->
-	<section id="hardware" class="bg-white py-20">
+	<section id="hardware" class="bg-white py-20" aria-labelledby="hardware-heading">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-16 text-center">
-				<h2 class="mb-4 text-4xl font-bold text-gray-900">
+				<h2 id="hardware-heading" class="mb-4 text-4xl font-bold text-gray-900">
 					{t.hardware.title}
 				</h2>
 				<p class="mx-auto max-w-3xl text-xl text-gray-600">
@@ -590,7 +604,7 @@
 				<div class="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
 					<div class="mb-6 flex items-center gap-4">
 						<div class="rounded-xl bg-amber-100 p-3">
-							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 								<circle cx="12" cy="12" r="3" />
 								<path d="M12 1v4" /><path d="M12 19v4" />
 								<path d="M4.22 4.22l2.83 2.83" /><path d="M16.95 16.95l2.83 2.83" />
@@ -610,7 +624,7 @@
 					<ul class="space-y-2">
 						{#each t.hardware.hinges.features as feature}
 							<li class="flex items-start gap-2 text-sm text-gray-700">
-								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
 								{feature}
 							</li>
 						{/each}
@@ -621,7 +635,7 @@
 				<div class="group rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
 					<div class="mb-6 flex items-center gap-4">
 						<div class="rounded-xl bg-amber-100 p-3">
-							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<svg class="h-8 w-8 text-amber-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 								<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
 								<path d="M7 11V7a5 5 0 0 1 10 0v4" />
 								<circle cx="12" cy="16" r="1" />
@@ -640,7 +654,7 @@
 					<ul class="space-y-2">
 						{#each t.hardware.rotoHardware.features as feature}
 							<li class="flex items-start gap-2 text-sm text-gray-700">
-								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
 								{feature}
 							</li>
 						{/each}
@@ -665,7 +679,7 @@
 					<ul class="space-y-2">
 						{#each t.hardware.doorStrip.features as feature}
 							<li class="flex items-start gap-2 text-sm text-gray-700">
-								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+								<svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
 								{feature}
 							</li>
 						{/each}
@@ -676,12 +690,15 @@
 	</section>
 
 	<!-- Cases Section -->
-	<section id="cases" class="bg-gray-50 py-20">
+	<section id="cases" class="bg-gray-50 py-20" aria-labelledby="cases-heading">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-16 text-center">
-				<h2 class="mb-4 text-4xl font-bold text-gray-900">
+				<h2 id="cases-heading" class="mb-4 text-4xl font-bold text-gray-900">
 					{t.cases.title}
 				</h2>
+				<p class="mx-auto max-w-3xl text-xl text-gray-600">
+					{t.cases.subtitle}
+				</p>
 			</div>
 
 			<div class="grid items-start gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -728,11 +745,58 @@
 		</div>
 	</section>
 
-	<!-- Contact Section -->
-	<section id="contact" class="bg-gray-50 py-20">
+	<!-- FAQ Section -->
+	<section id="faq" class="bg-white py-20" aria-labelledby="faq-heading">
 		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 			<div class="mb-12 text-center">
-				<h2 class="mb-4 text-4xl font-bold text-gray-900">
+				<h2 id="faq-heading" class="mb-4 text-4xl font-bold text-gray-900">
+					{t.faq.title}
+				</h2>
+				<p class="mx-auto max-w-3xl text-lg text-gray-600">
+					{t.faq.subtitle}
+				</p>
+			</div>
+
+			<div class="space-y-4">
+				{#each t.faq.items as item, index}
+					<div class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+						<h3>
+							<button
+								type="button"
+								onclick={() => toggleFaq(index)}
+								class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-amber-50"
+								aria-expanded={openFaq === index}
+								aria-controls="faq-answer-{index}"
+							>
+								<span class="text-base font-semibold text-gray-900 sm:text-lg">{item.question}</span>
+								<span class="flex-shrink-0 rounded-full bg-amber-100 p-2 text-amber-700">
+									{#if openFaq === index}
+										<Minus class="h-4 w-4" aria-hidden="true" />
+									{:else}
+										<Plus class="h-4 w-4" aria-hidden="true" />
+									{/if}
+								</span>
+							</button>
+						</h3>
+						<div
+							id="faq-answer-{index}"
+							class="px-6 transition-all duration-300 {openFaq === index
+								? 'max-h-96 pb-5 opacity-100'
+								: 'max-h-0 overflow-hidden opacity-0'}"
+						>
+							<p class="leading-relaxed text-gray-600">{item.answer}</p>
+						</div>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact" class="bg-gray-50 py-20" aria-labelledby="contact-heading">
+		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+			<div class="mb-12 text-center">
+				<h2 id="contact-heading" class="mb-4 text-4xl font-bold text-gray-900">
 					{t.contact.title}
 				</h2>
 				<p class="text-xl text-gray-600">{t.contact.subtitle}</p>
@@ -861,7 +925,7 @@
 						class="group flex w-full items-center justify-center rounded-lg bg-amber-700 px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-amber-800"
 					>
 						{t.contact.form.submit}
-						<ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+						<ArrowRight class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
 					</button>
 				</form>
 			</div>
@@ -871,9 +935,9 @@
 	<!-- Footer -->
 	<footer class="bg-gray-900 py-16 text-white">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
+			<div class="grid gap-12 md:grid-cols-3 md:items-start md:gap-12">
 				<div>
-					<h3 class="mb-4 text-lg font-semibold">{t.footer.quickLinks}</h3>
+					<h2 class="mb-4 text-lg font-semibold">{t.footer.quickLinks}</h2>
 					<nav class="space-y-2" aria-label={language === 'nl' ? 'Snelle links' : 'Quick links'}>
 						{#each navItems as item}
 							<button
@@ -885,19 +949,25 @@
 						{/each}
 					</nav>
 				</div>
-				<div class="text-center md:text-left">
+
+				<div>
+					<h2 class="mb-4 text-lg font-semibold">{t.footer.servesTitle}</h2>
+					<p class="text-sm leading-relaxed text-gray-400">{t.footer.servesText}</p>
+				</div>
+
+				<div class="md:text-left">
 					<div class="mb-4 inline-flex items-center space-x-2 md:inline-flex">
-						<img src="{base}/logo.png" alt="TonyGroupe S.R.L." class="h-8 w-8" width="32" height="32" />
+						<img src="{base}/logo.png" alt="TonyGroupe S.R.L. logo" class="h-8 w-8" width="32" height="32" />
 						<div class="flex flex-col items-start leading-tight">
 							<span class="text-lg font-bold tracking-wide text-white">TONYGROUPE <span class="text-amber-400">S.R.L.</span></span>
 							<span class="text-xs font-medium tracking-wider text-gray-500">WOOD DIVISION</span>
 						</div>
 					</div>
-					<p class="text-lg text-gray-400">{t.footer.description}</p>
-					<div class="mt-4 flex items-start gap-2 text-sm text-gray-500">
-						<MapPin class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" />
+					<p class="text-base text-gray-400">{t.footer.description}</p>
+					<address class="mt-4 flex items-start gap-2 text-sm not-italic text-gray-500">
+						<MapPin class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-400" aria-hidden="true" />
 						<span>{t.footer.address}</span>
-					</div>
+					</address>
 					<a
 						href="https://www.tonygroupe.be/"
 						target="_blank"
@@ -905,7 +975,7 @@
 						class="mt-3 inline-flex items-center gap-1 text-sm text-amber-400 transition-colors hover:text-amber-300"
 					>
 						www.tonygroupe.be
-						<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+						<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
 					</a>
 				</div>
 			</div>

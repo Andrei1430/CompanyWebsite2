@@ -3,15 +3,9 @@ import { seo } from '$lib/seo';
 
 export const prerender = true;
 
-const mainPages = [
-	{ path: '/', priority: '1.0' },
-	{ path: '/nl/', priority: '1.0' }
-];
-
-const projectPages = [
-	{ path: '/projects/front-door-and-windows/', priority: '0.8' },
-	{ path: '/projects/balcony-window-and-door/', priority: '0.8' },
-	{ path: '/projects/staircase/', priority: '0.8' }
+const pages = [
+	{ path: '/', priority: '1.0', changefreq: 'weekly' },
+	{ path: '/nl/', priority: '1.0', changefreq: 'weekly' }
 ];
 
 export const GET: RequestHandler = async () => {
@@ -21,24 +15,19 @@ export const GET: RequestHandler = async () => {
 	const hreflangBlock = `
     <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/" />
     <xhtml:link rel="alternate" hreflang="nl" href="${siteUrl}/nl/" />
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="${siteUrl}/nl/" />
+    <xhtml:link rel="alternate" hreflang="nl-NL" href="${siteUrl}/nl/" />
+    <xhtml:link rel="alternate" hreflang="en-BE" href="${siteUrl}/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}/" />`;
 
-	const allUrls = [
-		...mainPages.map(
-			(p) => `  <url>
+	const allUrls = pages.map(
+		(p) => `  <url>
     <loc>${siteUrl}${p.path}</loc>
     <lastmod>${lastmod}</lastmod>
+    <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>${hreflangBlock}
   </url>`
-		),
-		...projectPages.map(
-			(p) => `  <url>
-    <loc>${siteUrl}${p.path}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <priority>${p.priority}</priority>
-  </url>`
-		)
-	];
+	);
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
