@@ -95,16 +95,6 @@
 						maintenance: 'Quasi nul'
 					}
 				],
-				priceTitle: 'Transparence sur les prix',
-				priceIntro:
-					'Voici nos fourchettes habituelles pour un châssis bois sur mesure de 1,2 × 1,5 m, posé et finition incluse :',
-				priceRows: [
-					{ scope: 'Double vitrage HR++', range: '€ 1 400 – 2 200' },
-					{ scope: 'Triple vitrage', range: '€ 1 700 – 2 600' },
-					{ scope: 'Profilé monumental sur mesure', range: '€ 2 300 – 3 500' }
-				],
-				priceNote:
-					'Le prix exact dépend du bois choisi, de la quincaillerie, de la finition et de l’accessibilité du chantier. Devis fixe par ouverture, sans surprise.'
 			};
 		if (language === 'nl')
 			return {
@@ -141,16 +131,6 @@
 						maintenance: 'Bijna geen'
 					}
 				],
-				priceTitle: 'Prijstransparantie',
-				priceIntro:
-					'Onze gebruikelijke ranges voor een houten kozijn op maat van 1,2 × 1,5 m, inclusief plaatsing en afwerking:',
-				priceRows: [
-					{ scope: 'HR++ dubbelglas', range: '€ 1.400 – 2.200' },
-					{ scope: 'Triple glas', range: '€ 1.700 – 2.600' },
-					{ scope: 'Monumentaal profiel op maat', range: '€ 2.300 – 3.500' }
-				],
-				priceNote:
-					'De exacte prijs hangt af van houtsoort, beslag, afwerking en bereikbaarheid van de werf. Vaste prijs per opening, geen verrassingen.'
 			};
 		return {
 			glassTitle: 'HR++ glass vs triple glass: which should you choose?',
@@ -187,16 +167,6 @@
 					maintenance: 'Almost none'
 				}
 			],
-			priceTitle: 'Price transparency',
-			priceIntro:
-				'Our usual ranges for a custom 1.2 × 1.5 m wooden window frame, installed and finished:',
-			priceRows: [
-				{ scope: 'HR++ double glazing', range: '€ 1,400 – 2,200' },
-				{ scope: 'Triple glazing', range: '€ 1,700 – 2,600' },
-				{ scope: 'Heritage profile (custom)', range: '€ 2,300 – 3,500' }
-			],
-			priceNote:
-				'Exact price depends on timber choice, hardware, finish and site access. Fixed quote per opening, no surprises.'
 		};
 	});
 
@@ -320,8 +290,6 @@
 		bestFor: language === 'nl' ? 'Ideaal voor' : language === 'fr' ? 'Idéal pour' : 'Best for',
 		lifespan: language === 'nl' ? 'Levensduur' : language === 'fr' ? 'Durée de vie' : 'Lifespan',
 		maintenance: language === 'nl' ? 'Onderhoud' : language === 'fr' ? 'Entretien' : 'Maintenance',
-		configuration: language === 'nl' ? 'Configuratie' : language === 'fr' ? 'Configuration' : 'Configuration',
-		price: language === 'nl' ? 'Indicatieve prijs' : language === 'fr' ? 'Prix indicatif' : 'Indicative price'
 	});
 </script>
 
@@ -921,29 +889,6 @@
 				</div>
 			</div>
 
-			<div>
-				<h3 class="mb-3 text-3xl font-bold text-gray-900">{comparison.priceTitle}</h3>
-				<p class="mb-6 text-gray-600">{comparison.priceIntro}</p>
-				<div class="overflow-x-auto rounded-lg border border-amber-200 bg-amber-50">
-					<table class="w-full text-left text-sm">
-						<thead class="bg-amber-100 text-gray-800">
-							<tr>
-								<th class="px-4 py-3">{compareLabels.configuration}</th>
-								<th class="px-4 py-3">{compareLabels.price}</th>
-							</tr>
-						</thead>
-						<tbody>
-							{#each comparison.priceRows as row}
-								<tr class="border-t border-amber-200">
-									<td class="px-4 py-3 font-medium text-gray-900">{row.scope}</td>
-									<td class="px-4 py-3 font-semibold text-amber-800">{row.range}</td>
-								</tr>
-							{/each}
-						</tbody>
-					</table>
-				</div>
-				<p class="mt-4 text-sm text-gray-700">{comparison.priceNote}</p>
-			</div>
 		</div>
 	</section>
 
